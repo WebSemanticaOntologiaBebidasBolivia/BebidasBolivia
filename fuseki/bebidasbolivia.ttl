@@ -1,0 +1,1398 @@
+@prefix ex:  <http://ontologia.bebidasbolivia.org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:  <http://purl.org/dc/elements/1.1/> .
+
+ex:OntologiaBebidasBolivia a owl:Ontology ;
+  rdfs:label "Ontología de bebidas alcohólicas y consumo en festividades de Bolivia"@es ;
+  rdfs:label "Ontology of alcoholic beverages and consumption in Bolivian festivities"@en ;
+  rdfs:label "Ontologia de bebidas alcoólicas e consumo em festividades bolivianas"@pt ;
+  rdfs:label "Ontologie des boissons alcoolisées et de la consommation lors des festivités boliviennes"@fr ;
+  rdfs:label "Ontologia delle bevande alcoliche e dei consumi nelle festività boliviane"@it ;
+  rdfs:comment "Diseñada para responder 35 preguntas de competencia de marketing y consumo."@es ;
+  rdfs:comment "Designed to answer 35 competency questions on marketing and consumption."@en ;
+  rdfs:comment "Projetada para responder 35 questões de competência em marketing e consumo."@pt ;
+  rdfs:comment "Conçue pour répondre à 35 questions de compétence en marketing et consommation."@fr ;
+  rdfs:comment "Progettata per rispondere a 35 domande di competenza in marketing e consumo."@it .
+
+ex:OntologiaBebidasBolivia dc:creator "Equipo Ontologías - WebSemantica" ;
+  dc:date "2025-12-08"^^xsd:date ;
+  dc:language "es, en, pt, fr, it" .
+
+##########
+# Clases #
+##########
+
+
+# Producto
+ex:BebidaAlcoholica a owl:Class ;
+  rdfs:label "Bebida alcohólica"@es ;
+  rdfs:label "Alcoholic beverage"@en ;
+  rdfs:label "Bebida alcoólica"@pt ;
+  rdfs:label "Boisson alcoolisée"@fr ;
+  rdfs:label "Bevanda alcolica"@it ;
+  rdfs:comment "Cualquier bebida que contiene etanol producido por fermentación o destilación."@es ;
+  rdfs:comment "Any beverage containing ethanol produced by fermentation or distillation."@en ;
+  rdfs:comment "Qualquer bebida que contenha etanol produzido por fermentação ou destilação."@pt ;
+  rdfs:comment "Toute boisson contenant de l'éthanol produit par fermentation ou distillation."@fr ;
+  rdfs:comment "Qualsiasi bevanda contenente etanolo prodotto per fermentazione o distillazione."@it .
+
+ex:Cerveza a owl:Class ; rdfs:subClassOf ex:BebidaAlcoholica ;
+  rdfs:label "Cerveza"@es ;
+  rdfs:label "Beer"@en ;
+  rdfs:label "Cerveja"@pt ;
+  rdfs:label "Bière"@fr ;
+  rdfs:label "Birra"@it ;
+  rdfs:comment "Bebida alcohólica elaborada a partir de la fermentación de cereales."@es ;
+  rdfs:comment "Alcoholic beverage made from cereal fermentation."@en ;
+  rdfs:comment "Bebida alcoólica feita a partir da fermentação de cereais."@pt ;
+  rdfs:comment "Boisson alcoolisée élaborée à partir de la fermentation de céréales."@fr ;
+  rdfs:comment "Bevanda alcolica ottenuta dalla fermentazione dei cereali."@it .
+
+ex:CervezaLager a owl:Class ; rdfs:subClassOf ex:Cerveza ;
+  rdfs:label "Cerveza lager"@es ; rdfs:label "Lager beer"@en ; rdfs:label "Cerveja lager"@pt ; rdfs:label "Bière lager"@fr ; rdfs:label "Birra lager"@it ;
+  rdfs:comment "Estilo de cerveza de fermentación baja, generalmente clara y de sabor suave."@es ;
+  rdfs:comment "Low-fermentation beer style, typically pale and mild in flavor."@en ;
+  rdfs:comment "Estilo de cerveja de fermentação baixa, geralmente clara e de sabor suave."@pt ;
+  rdfs:comment "Style de bière à fermentation basse, généralement claire et au goût doux."@fr ;
+  rdfs:comment "Stile di birra a fermentazione bassa, tipicamente chiara e dal sapore delicato."@it .
+
+ex:CervezaPilsen a owl:Class ; rdfs:subClassOf ex:Cerveza ;
+  rdfs:label "Cerveza Pilsen"@es ;
+  rdfs:label "Pilsner"@en ;
+  rdfs:label "Cerveja Pilsen"@pt ;
+  rdfs:label "Pilsner"@fr ;
+  rdfs:label "Pilsner"@it ;
+  rdfs:comment "Estilo Pilsen: cerveza ligera, cristalina y con amargor moderado."@es ;
+  rdfs:comment "Pilsner style: a light, clear beer with moderate bitterness."@en ;
+  rdfs:comment "Estilo Pilsner: cerveja leve, cristalina e com amargor moderado."@pt ;
+  rdfs:comment "Style Pilsner : bière légère, claire et avec une amertume modérée."@fr ;
+  rdfs:comment "Stile Pilsner: birra leggera, limpida e con amaro moderato."@it .
+
+ex:CervezaNegra a owl:Class ; rdfs:subClassOf ex:Cerveza ;
+  rdfs:label "Cerveza negra"@es ; rdfs:label "Dark beer"@en ; rdfs:label "Cerveja escura"@pt ; rdfs:label "Bière noire"@fr ; rdfs:label "Birra scura"@it ;
+  rdfs:comment "Cerveza oscura con sabores tostados y notas a malta."@es ;
+  rdfs:comment "Dark beer with roasted and malty flavor notes."@en ;
+  rdfs:comment "Cerveja escura com sabores torrados e notas de malte."@pt ;
+  rdfs:comment "Bière noire aux saveurs torréfiées et notes de malt."@fr ;
+  rdfs:comment "Birra scura con sapori tostati e note di malto."@it .
+
+ex:CervezaArtesanal a owl:Class ; rdfs:subClassOf ex:Cerveza ;
+  rdfs:label "Cerveza artesanal"@es ; rdfs:label "Craft beer"@en ; rdfs:label "Cerveja artesanal"@pt ; rdfs:label "Bière artisanale"@fr ; rdfs:label "Birra artigianale"@it ;
+  rdfs:comment "Cerveza producida en pequeña escala con métodos tradicionales."@es ;
+  rdfs:comment "Beer produced on a small scale using traditional methods."@en ;
+  rdfs:comment "Cerveja produzida em pequena escala com métodos tradicionais."@pt ;
+  rdfs:comment "Bière produite à petite échelle selon des méthodes traditionnelles."@fr ;
+  rdfs:comment "Birra prodotta su piccola scala con metodi tradizionali."@it .
+
+ex:Vino a owl:Class ; rdfs:subClassOf ex:BebidaAlcoholica ;
+  rdfs:label "Vino"@es ; rdfs:label "Wine"@en ; rdfs:label "Vinho"@pt ; rdfs:label "Vin"@fr ; rdfs:label "Vino"@it ;
+  rdfs:comment "Bebida alcohólica producida por fermentación de jugo de uva."@es ;
+  rdfs:comment "Alcoholic beverage produced by fermentation of grape juice."@en ;
+  rdfs:comment "Bebida alcoólica produzida por fermentação de suco de uva."@pt ;
+  rdfs:comment "Boisson alcoolisée produite par fermentation du jus de raisin."@fr ;
+  rdfs:comment "Bevanda alcolica prodotta dalla fermentazione del succo d'uva."@it .
+
+ex:VinoTinto a owl:Class ; rdfs:subClassOf ex:Vino ;
+  rdfs:label "Vino tinto"@es ; rdfs:label "Red wine"@en ; rdfs:label "Vinho tinto"@pt ; rdfs:label "Vin rouge"@fr ; rdfs:label "Vino rosso"@it ;
+  rdfs:comment "Vino elaborado principalmente con uvas tintas, de color y cuerpo variables."@es ;
+  rdfs:comment "Wine produced mainly from red grapes; color and body may vary."@en ;
+  rdfs:comment "Vinho produzido principalmente a partir de uvas tintas; cor e corpo podem variar."@pt ;
+  rdfs:comment "Vin élaboré principalement à partir de raisins rouges ; couleur et corps variables."@fr ;
+  rdfs:comment "Vino prodotto principalmente da uve rosse; colore e corpo variabili."@it .
+
+ex:VinoBlanco a owl:Class ; rdfs:subClassOf ex:Vino ;
+  rdfs:label "Vino blanco"@es ; rdfs:label "White wine"@en ; rdfs:label "Vinho branco"@pt ; rdfs:label "Vin blanc"@fr ; rdfs:label "Vino bianco"@it ;
+  rdfs:comment "Vino elaborado principalmente con uvas blancas, con perfil más ligero y fresco."@es ;
+  rdfs:comment "Wine mainly made from white grapes, generally lighter and fresher in profile."@en ;
+  rdfs:comment "Vinho elaborado principalmente com uvas brancas, geralmente mais leve e fresco."@pt ;
+  rdfs:comment "Vin élaboré principalement à partir de raisins blancs, généralement plus léger et frais."@fr ;
+  rdfs:comment "Vino prodotto principalmente da uve bianche, generalmente più leggero e fresco."@it .
+
+ex:VinoRosado a owl:Class ; rdfs:subClassOf ex:Vino ;
+  rdfs:label "Vino rosado"@es ; rdfs:label "Rosé wine"@en ; rdfs:label "Vinho rosé"@pt ; rdfs:label "Vin rosé"@fr ; rdfs:label "Vino rosato"@it ;
+  rdfs:comment "Vino con maceración corta de uvas tintas, de color rosado y perfil frutal."@es ;
+  rdfs:comment "Wine with short maceration of red grapes, pink-colored and typically fruity."@en ;
+  rdfs:comment "Vinho com curta maceração de uvas tintas, de cor rosada e perfil frutado."@pt ;
+  rdfs:comment "Vin avec macération courte de raisins rouges, de couleur rosée et profil fruité."@fr ;
+  rdfs:comment "Vino con breve macerazione di uve rosse, di colore rosa e profilo fruttato."@it .
+
+ex:VinoEspumante a owl:Class ; rdfs:subClassOf ex:Vino ;
+  rdfs:label "Vino espumante"@es ; rdfs:label "Sparkling wine"@en ; rdfs:label "Vinho espumante"@pt ; rdfs:label "Vin mousseux"@fr ; rdfs:label "Vino spumante"@it ;
+  rdfs:comment "Vino con efervescencia natural o inducida, caracterizado por burbujas y frescura."@es ;
+  rdfs:comment "Wine with natural or induced effervescence, characterized by bubbles and freshness."@en ;
+  rdfs:comment "Vinho com efervescência natural ou induzida, caracterizado por bolhas e frescor."@pt ;
+  rdfs:comment "Vin à effervescence naturelle ou induite, caractérisé par des bulles et de la fraîcheur."@fr ;
+  rdfs:comment "Vino con effervescenza naturale o indotta, caratterizzato da bollicine e freschezza."@it .
+
+ex:Destilado a owl:Class ; rdfs:subClassOf ex:BebidaAlcoholica ;
+  rdfs:label "Destilado"@es ; rdfs:label "Distilled spirit"@en ; rdfs:label "Destilado"@pt ; rdfs:label "Spiritueux distillé"@fr ; rdfs:label "Distillato"@it ;
+  rdfs:comment "Bebida alcohólica concentrada producida por destilación."@es ;
+  rdfs:comment "Concentrated alcoholic beverage produced by distillation."@en ;
+  rdfs:comment "Bebida alcoólica concentrada produzida por destilação."@pt ;
+  rdfs:comment "Boisson alcoolisée concentrée produite par distillation."@fr ;
+  rdfs:comment "Bevanda alcolica concentrata ottenuta per distillazione."@it .
+
+ex:Singani a owl:Class ; rdfs:subClassOf ex:Destilado ;
+  rdfs:label "Singani"@es ; rdfs:label "Singani"@en ; rdfs:label "Singani"@pt ; rdfs:label "Singani"@fr ; rdfs:label "Singani"@it ;
+  rdfs:comment "Destilado boliviano producido de uva Muscatel."@es ; rdfs:comment "Bolivian distilled spirit made from Muscat grapes."@en ; rdfs:comment "Destilado boliviano produzido a partir de uva Moscatel."@pt ; rdfs:comment "Alcool distillé bolivien produit à partir de raisins Muscat."@fr ; rdfs:comment "Distillato boliviano prodotto da uva Moscato."@it .
+
+ex:Ron a owl:Class ; rdfs:subClassOf ex:Destilado ;
+  rdfs:label "Ron"@es ; rdfs:label "Rum"@en ; rdfs:label "Rum"@pt ; rdfs:label "Rhum"@fr ; rdfs:label "Rum"@it ;
+  rdfs:comment "Destilado producido a partir de caña de azúcar."@es ; rdfs:comment "Distilled spirit produced from sugar cane."@en ; rdfs:comment "Destilado produzido a partir da cana-de-açúcar."@pt ; rdfs:comment "Alcool distillé produit à partir de la canne à sucre."@fr ; rdfs:comment "Distillato ottenuto dalla canna da zucchero."@it .
+
+ex:Whisky a owl:Class ; rdfs:subClassOf ex:Destilado ;
+  rdfs:label "Whisky"@es ;
+  rdfs:label "Whisky"@en ;
+  rdfs:label "Uísque"@pt ;
+  rdfs:label "Whisky"@fr ;
+  rdfs:label "Whisky"@it ;
+  rdfs:comment "Destilado producido a partir de cereales malteados."@es ; rdfs:comment "Distilled spirit made from malted grains."@en ; rdfs:comment "Destilado produzido a partir de grãos maltados."@pt ; rdfs:comment "Alcool distillé produit à partir de céréales maltées."@fr ; rdfs:comment "Distillato ottenuto da cereali maltati."@it .
+
+ex:Vodka a owl:Class ; rdfs:subClassOf ex:Destilado ;
+  rdfs:label "Vodka"@es ; rdfs:label "Vodka"@en ; rdfs:label "Vodka"@pt ; rdfs:label "Vodka"@fr ; rdfs:label "Vodka"@it ;
+  rdfs:comment "Destilado incoloro producido a partir de diversos cereales."@es ; rdfs:comment "Colorless distilled spirit made from various grains."@en ; rdfs:comment "Destilado incolor produzido a partir de vários cereais."@pt ; rdfs:comment "Alcool distillé incolore produit à partir de divers céréales."@fr ; rdfs:comment "Distillato incolore ottenuto da vari cereali."@it .
+
+ex:Ginebra a owl:Class ; rdfs:subClassOf ex:Destilado ;
+  rdfs:label "Ginebra"@es ; rdfs:label "Gin"@en ; rdfs:label "Gin"@pt ; rdfs:label "Genièvre"@fr ; rdfs:label "Gin"@it ;
+  rdfs:comment "Destilado aromático infusionado con bayas de enebro."@es ; rdfs:comment "Aromatic distilled spirit infused with juniper berries."@en ; rdfs:comment "Destilado aromático infusionado com bagas de zimbro."@pt ; rdfs:comment "Alcool distillé aromatique infusionné avec des baies de genévrier."@fr ; rdfs:comment "Distillato aromatico infuso con bacche di ginepro."@it .
+
+# Contextual
+ex:BebidaSinAlcohol a owl:Class ;
+  rdfs:label "Bebida sin alcohol"@es ; rdfs:label "Non-alcoholic beverage"@en ; rdfs:label "Bebida não alcoólica"@pt ; rdfs:label "Boisson non alcoolisée"@fr ; rdfs:label "Bevanda analcolica"@it ;
+  rdfs:comment "Bebida destinada al consumo sin contenido alcohólico."@es ; rdfs:comment "Beverage intended for consumption without alcoholic content."@en ; rdfs:comment "Bebida destinada ao consumo sem teor alcoólico."@pt ; rdfs:comment "Boisson destinée à la consommation sans alcool."@fr ; rdfs:comment "Bevanda destinata al consumo senza contenuto alcolico."@it .
+
+# Geografía y clima
+ex:Departamento a owl:Class ;
+  rdfs:label "Departamento"@es ; rdfs:label "Department"@en ; rdfs:label "Departamento"@pt ; rdfs:label "Département"@fr ; rdfs:label "Dipartimento"@it ;
+  rdfs:comment "División político-administrativa de Bolivia (ej. La Paz, Cochabamba)."@es ; rdfs:comment "Political-administrative division of Bolivia (e.g., La Paz, Cochabamba)."@en ; rdfs:comment "Divisão político-administrativa da Bolívia (ex.: La Paz, Cochabamba)."@pt ; rdfs:comment "Division politico-administrative de la Bolivie (ex.: La Paz, Cochabamba)."@fr ; rdfs:comment "Divisione politico-amministrativa della Bolivia (es.: La Paz, Cochabamba)."@it .
+
+ex:RegionGeografica a owl:Class ;
+  rdfs:label "Región geográfica"@es ; rdfs:label "Geographic region"@en ; rdfs:label "Região geográfica"@pt ; rdfs:label "Région géographique"@fr ; rdfs:label "Regione geografica"@it ;
+  rdfs:comment "Zona geográfica amplia que agrupa departamentos con rasgos similares."@es ; rdfs:comment "Broad geographic area grouping departments with similar features."@en ; rdfs:comment "Área geográfica ampla que agrupa departamentos com características semelhantes."@pt ; rdfs:comment "Grande zone géographique regroupant des départements aux traits similaires."@fr ; rdfs:comment "Ampia area geografica che raggruppa dipartimenti con caratteristiche simili."@it .
+
+ex:Clima a owl:Class ;
+  rdfs:label "Clima"@es ; rdfs:label "Climate"@en ; rdfs:label "Clima"@pt ; rdfs:label "Climat"@fr ; rdfs:label "Clima"@it ;
+  rdfs:comment "Condiciones atmosféricas representativas de una región o período."@es ; rdfs:comment "Representative atmospheric conditions of a region or period."@en ; rdfs:comment "Condições atmosféricas representativas de uma região ou período."@pt ; rdfs:comment "Conditions atmosphériques représentatives d'une région ou d'une période."@fr ; rdfs:comment "Condizioni atmosferiche rappresentative di una regione o periodo."@it .
+
+ex:RestriccionLegal a owl:Class ;
+  rdfs:label "Restricción legal"@es ; rdfs:label "Legal restriction"@en ; rdfs:label "Restrição legal"@pt ; rdfs:label "Restriction légale"@fr ; rdfs:label "Restrizione legale"@it ;
+  rdfs:comment "Norma o regulación que limita la producción, venta o consumo de alcohol."@es ; rdfs:comment "Rule or regulation that limits production, sale, or consumption of alcohol."@en ; rdfs:comment "Norma ou regulamento que limita a produção, venda ou consumo de álcool."@pt ; rdfs:comment "Règle ou réglementation limitant la production, la vente ou la consommation d'alcool."@fr ; rdfs:comment "Norma o regolamento che limita produzione, vendita o consumo di alcol."@it .
+
+# Eventos y marketing
+ex:Evento a owl:Class ;
+  rdfs:label "Evento"@es ; rdfs:label "Event"@en ; rdfs:label "Evento"@pt ; rdfs:label "Événement"@fr ; rdfs:label "Evento"@it ;
+  rdfs:comment "Suceso organizado o espontáneo donde puede producirse consumo de bebidas."@es ; rdfs:comment "Organized or spontaneous occurrence where beverage consumption may happen."@en ; rdfs:comment "Ocorrência organizada ou espontânea onde o consumo de bebidas pode ocorrer."@pt ; rdfs:comment "Occurrence organisée ou spontanée où la consommation de boissons peut avoir lieu."@fr ; rdfs:comment "Evento organizzato o spontaneo in cui può verificarsi il consumo di bevande."@it .
+
+ex:Festividad a owl:Class ; rdfs:subClassOf ex:Evento ;
+  rdfs:label "Festividad"@es ; rdfs:label "Festivity"@en ; rdfs:label "Festividade"@pt ; rdfs:label "Festivité"@fr ; rdfs:label "Festività"@it ;
+  rdfs:comment "Celebración cultural o religiosa típica de una localidad o nación."@es ; rdfs:comment "Cultural or religious celebration typical of a locality or nation."@en ; rdfs:comment "Celebração cultural ou religiosa típica de uma localidade ou nação."@pt ; rdfs:comment "Célébration culturelle ou religieuse typique d'une localité ou d'une nation."@fr ; rdfs:comment "Celebrazione culturale o religiosa tipica di una località o nazione."@it .
+
+ex:FestividadNacional a owl:Class ; rdfs:subClassOf ex:Festividad ;
+  rdfs:label "Festividad nacional"@es ; rdfs:label "National festivity"@en ; rdfs:label "Festividade nacional"@pt ; rdfs:label "Fête nationale"@fr ; rdfs:label "Festività nazionale"@it ;
+  rdfs:comment "Festividad celebrada a nivel nacional."@es ; rdfs:comment "Festivity celebrated at the national level."@en ; rdfs:comment "Festividade celebrada a nível nacional."@pt ; rdfs:comment "Fête célébrée au niveau national."@fr ; rdfs:comment "Festività celebrata a livello nazionale."@it .
+
+ex:FestividadDepartamental a owl:Class ; rdfs:subClassOf ex:Festividad ;
+  rdfs:label "Festividad departamental"@es ; rdfs:label "Departmental festivity"@en ; rdfs:label "Festividade departamental"@pt ; rdfs:label "Fête départementale"@fr ; rdfs:label "Festività dipartimentale"@it ;
+  rdfs:comment "Festividad propia de un departamento específico."@es ; rdfs:comment "Festivity specific to a particular department."@en ; rdfs:comment "Festividade própria de um departamento específico."@pt ; rdfs:comment "Fête propre à un département spécifique."@fr ; rdfs:comment "Festività propria di uno specifico dipartimento."@it .
+
+ex:FestividadPatronal a owl:Class ; rdfs:subClassOf ex:Festividad ;
+  rdfs:label "Festividad patronal"@es ; rdfs:label "Patronal festivity"@en ; rdfs:label "Festividade padroeira"@pt ; rdfs:label "Fête patronale"@fr ; rdfs:label "Festività patronale"@it ;
+  rdfs:comment "Celebración en honor al santo patrón de una localidad."@es ; rdfs:comment "Celebration in honor of a locality's patron saint."@en ; rdfs:comment "Celebração em honra ao padroeiro de uma localidade."@pt ; rdfs:comment "Célébration en l'honneur du saint patron d'une localité."@fr ; rdfs:comment "Celebrazione in onore del santo patrono di una località."@it .
+
+ex:EventoDeportivo a owl:Class ; rdfs:subClassOf ex:Evento ;
+  rdfs:label "Evento deportivo"@es ; rdfs:label "Sporting event"@en ; rdfs:label "Evento esportivo"@pt ; rdfs:label "Événement sportif"@fr ; rdfs:label "Evento sportivo"@it ;
+  rdfs:comment "Competición o encuentro deportivo que atrae asistentes."@es ; rdfs:comment "Competition or sporting gathering that attracts attendees."@en ; rdfs:comment "Competição ou encontro esportivo que atrai participantes."@pt ; rdfs:comment "Compétition ou rassemblement sportif attirant des participants."@fr ; rdfs:comment "Competizione o incontro sportivo che attira partecipanti."@it .
+
+ex:EventoMasivo a owl:Class ; rdfs:subClassOf ex:Evento ;
+  rdfs:label "Evento masivo"@es ; rdfs:label "Mass event"@en ; rdfs:label "Evento massivo"@pt ; rdfs:label "Événement massif"@fr ; rdfs:label "Evento di massa"@it ;
+  rdfs:comment "Evento con gran concentración de público."@es ; rdfs:comment "Event with a large concentration of public attendees."@en ; rdfs:comment "Evento com grande concentração de público."@pt ; rdfs:comment "Événement avec une grande affluence."@fr ; rdfs:comment "Evento con grande afflusso di pubblico."@it .
+
+ex:AcontecimientoExterno a owl:Class ; rdfs:subClassOf ex:Evento ;
+  rdfs:label "Acontecimiento externo"@es ; rdfs:label "External occurrence"@en ; rdfs:label "Acontecimento externo"@pt ; rdfs:label "Occurrence externe"@fr ; rdfs:label "Avvenimento esterno"@it ;
+  rdfs:comment "Evento externo o contexto no local que puede influir en consumo."@es ; rdfs:comment "External event or non-local context that may influence consumption."@en ; rdfs:comment "Evento externo ou contexto não local que pode influenciar o consumo."@pt ; rdfs:comment "Événement externe ou contexte non local pouvant influencer la consommation."@fr ; rdfs:comment "Evento esterno o contesto non locale che può influenzare il consumo."@it .
+
+ex:RangoDeEdad a owl:Class ;
+  rdfs:label "Rango de edad"@es ; rdfs:label "Age range"@en ; rdfs:label "Faixa etária"@pt ; rdfs:label "Tranche d'âge"@fr ; rdfs:label "Fascia d'età"@it ;
+  rdfs:comment "Segmento de población definido por intervalos de edad."@es ; rdfs:comment "Population segment defined by age intervals."@en ; rdfs:comment "Segmento da população definido por intervalos de idade."@pt ; rdfs:comment "Segment de population défini par tranches d'âge."@fr ; rdfs:comment "Segmento di popolazione definito per fasce d'età."@it .
+
+ex:NivelSocioEconomico a owl:Class ;
+  rdfs:label "Nivel socioeconómico"@es ; rdfs:label "Socioeconomic level"@en ; rdfs:label "Nível socioeconômico"@pt ; rdfs:label "Niveau socio-économique"@fr ; rdfs:label "Livello socioeconomico"@it ;
+  rdfs:comment "Clasificación poblacional basada en ingresos y acceso a recursos."@es ; rdfs:comment "Population classification based on income and resource access."@en ; rdfs:comment "Classificação populacional baseada em renda e acesso a recursos."@pt ; rdfs:comment "Classification de la population basée sur le revenu et l'accès aux ressources."@fr ; rdfs:comment "Classificazione della popolazione basata su reddito e accesso alle risorse."@it .
+
+ex:CanalDeVenta a owl:Class ;
+  rdfs:label "Canal de venta"@es ; rdfs:label "Sales channel"@en ; rdfs:label "Canal de venda"@pt ; rdfs:label "Canal de vente"@fr ; rdfs:label "Canale di vendita"@it ;
+  rdfs:comment "Canales o puntos donde se comercializan bebidas (supermercado, discoteca, etc.)."@es ; rdfs:comment "Channels or points where beverages are sold (supermarket, nightclub, etc.)."@en ; rdfs:comment "Canais ou pontos onde bebidas são comercializadas (supermercado, boate, etc.)."@pt ; rdfs:comment "Canaux ou points de vente des boissons (supermarché, boîte de nuit, etc.)."@fr ; rdfs:comment "Canali o punti vendita dove le bevande sono commercializzate (supermercato, discoteca, ecc.)."@it .
+ex:Supermercado a owl:Class ; rdfs:subClassOf ex:CanalDeVenta ;
+  rdfs:label "Supermercado"@es ; rdfs:label "Supermarket"@en ; rdfs:label "Supermercado"@pt ; rdfs:label "Supermarché"@fr ; rdfs:label "Supermercato"@it ;
+  rdfs:comment "Canal de venta: supermercado, punto de venta de consumo y retail."@es ; rdfs:comment "Sales channel: supermarket, retail point of sale."@en ; rdfs:comment "Canal de venda: supermercado, ponto de venda varejista."@pt ; rdfs:comment "Canal de vente: supermarché, point de vente au détail."@fr ; rdfs:comment "Canale di vendita: supermercato, punto vendita al dettaglio."@it .
+ex:Discoteca a owl:Class ; rdfs:subClassOf ex:CanalDeVenta ;
+  rdfs:label "Discoteca"@es ; rdfs:label "Nightclub"@en ; rdfs:label "Discoteca"@pt ; rdfs:label "Discothèque"@fr ; rdfs:label "Discoteca"@it ;
+  rdfs:comment "Canal de venta: establecimientos nocturnos para consumo en sitio."@es ; rdfs:comment "Sales channel: nighttime venues for on-site consumption."@en ; rdfs:comment "Canal de venda: locais noturnos para consumo no local."@pt ; rdfs:comment "Canal de vente: lieux nocturnes pour consommation sur place."@fr ; rdfs:comment "Canale di vendita: locali notturni per consumo in loco."@it .
+ex:TiendaDeBarrio a owl:Class ; rdfs:subClassOf ex:CanalDeVenta ;
+  rdfs:label "Tienda de barrio"@es ; rdfs:label "Corner store"@en ; rdfs:label "Loja de bairro"@pt ; rdfs:label "Épicerie de quartier"@fr ; rdfs:label "Negozio di quartiere"@it ;
+  rdfs:comment "Canal de venta: tienda local de proximidad."@es ; rdfs:comment "Sales channel: local neighborhood store."@en ; rdfs:comment "Canal de venda: loja local de proximidade."@pt ; rdfs:comment "Canal de vente: magasin de quartier."@fr ; rdfs:comment "Canale di vendita: negozio di quartiere."@it .
+ex:Restaurante a owl:Class ; rdfs:subClassOf ex:CanalDeVenta ;
+  rdfs:label "Restaurante"@es ; rdfs:label "Restaurant"@en ; rdfs:label "Restaurante"@pt ; rdfs:label "Restaurant"@fr ; rdfs:label "Ristorante"@it ;
+  rdfs:comment "Canal de venta: establecimientos gastronómicos que sirven bebidas."@es ; rdfs:comment "Sales channel: dining establishments that serve beverages."@en ; rdfs:comment "Canal de venda: estabelecimentos gastronômicos que servem bebidas."@pt ; rdfs:comment "Canal de vente: établissements gastronomiques servant des boissons."@fr ; rdfs:comment "Canale di vendita: esercizi gastronomici che servono bevande."@it .
+ex:Distribuidor a owl:Class ;
+  rdfs:label "Distribuidor"@es ; rdfs:label "Distributor"@en ; rdfs:label "Distribuidor"@pt ; rdfs:label "Distributeur"@fr ; rdfs:label "Distributore"@it ;
+  rdfs:comment "Entidad que distribuye bebidas a distintos canales de venta."@es ; rdfs:comment "Entity that distributes beverages to various sales channels."@en ; rdfs:comment "Entidade que distribui bebidas para vários canais de venda."@pt ; rdfs:comment "Entité qui distribue des boissons vers différents canaux de vente."@fr ; rdfs:comment "Entità che distribuisce bevande ai diversi canali di vendita."@it .
+
+ex:CampañaPublicitaria a owl:Class ;
+  rdfs:label "Campaña publicitaria"@es ; rdfs:label "Advertising campaign"@en ; rdfs:label "Campanha publicitária"@pt ; rdfs:label "Campagne publicitaire"@fr ; rdfs:label "Campagna pubblicitaria"@it ;
+  rdfs:comment "Acción comercial para promover un producto o marca."@es ; rdfs:comment "Commercial action to promote a product or brand."@en ; rdfs:comment "Ação comercial para promover um produto ou marca."@pt ; rdfs:comment "Action commerciale visant à promouvoir un produit ou une marque."@fr ; rdfs:comment "Azione commerciale per promuovere un prodotto o un marchio."@it .
+
+ex:Ventas a owl:Class ;
+  rdfs:label "Ventas"@es ; rdfs:label "Sales"@en ; rdfs:label "Vendas"@pt ; rdfs:label "Ventes"@fr ; rdfs:label "Vendite"@it ;
+  rdfs:comment "Registro o estimación de unidades vendidas en un periodo y canal."@es ; rdfs:comment "Record or estimate of units sold in a period and channel."@en ; rdfs:comment "Registro ou estimativa de unidades vendidas em um período e canal."@pt ; rdfs:comment "Enregistrement ou estimation des unités vendues sur une période et un canal."@fr ; rdfs:comment "Registrazione o stima delle unità vendute in un periodo e canale."@it .
+
+ex:DemandaPromedio a owl:Class ;
+  rdfs:label "Demanda promedio"@es ; rdfs:label "Average demand"@en ; rdfs:label "Demanda média"@pt ; rdfs:label "Demande moyenne"@fr ; rdfs:label "Domanda media"@it ;
+  rdfs:comment "Estimación promedio de demanda de un producto en un periodo."@es ; rdfs:comment "Average estimate of product demand over a period."@en ; rdfs:comment "Estimativa média da demanda de um produto em um período."@pt ; rdfs:comment "Estimation moyenne de la demande d'un produit sur une période."@fr ; rdfs:comment "Stima media della domanda di un prodotto in un periodo."@it .
+
+ex:EstiloMusica a owl:Class ;
+  rdfs:label "Estilo de música"@es ; rdfs:label "Music style"@en ; rdfs:label "Estilo musical"@pt ; rdfs:label "Style musical"@fr ; rdfs:label "Stile musicale"@it ;
+  rdfs:comment "Género musical asociado a la afinidad de consumo de una bebida."@es ; rdfs:comment "Musical genre associated with a beverage's consumption affinity."@en ; rdfs:comment "Gênero musical associado à afinidade de consumo de uma bebida."@pt ; rdfs:comment "Genre musical associé à l'affinité de consommation d'une boisson."@fr ; rdfs:comment "Genere musicale associato all'affinità di consumo di una bevanda."@it .
+
+ex:CelebridadLocal a owl:Class ;
+  rdfs:label "Celebridad local"@es ; rdfs:label "Local celebrity"@en ; rdfs:label "Celebridade local"@pt ; rdfs:label "Célébrité locale"@fr ; rdfs:label "Celebrità locale"@it ;
+  rdfs:comment "Figura pública local que puede influir en la preferencia por una bebida."@es ; rdfs:comment "Local public figure who may influence preference for a beverage."@en ; rdfs:comment "Figura pública local que pode influenciar a preferência por uma bebida."@pt ; rdfs:comment "Personnalité locale pouvant influencer la préférence pour une boisson."@fr ; rdfs:comment "Figura pubblica locale che può influenzare la preferenza per una bevanda."@it .
+
+# Producto complementario
+ex:TipoDeEnvase a owl:Class ;
+  rdfs:label "Tipo de envase"@es ; rdfs:label "Packaging type"@en ; rdfs:label "Tipo de embalagem"@pt ; rdfs:label "Type d'emballage"@fr ; rdfs:label "Tipo di imballaggio"@it ;
+  rdfs:comment "Clasificación de envases usados para bebidas (lata, vidrio, PET)."@es ; rdfs:comment "Classification of containers used for beverages (can, glass, PET)."@en ; rdfs:comment "Classificação de embalagens usadas para bebidas (lata, vidro, PET)."@pt ; rdfs:comment "Classification des emballages utilisés pour les boissons (canette, verre, PET)."@fr ; rdfs:comment "Classificazione dei contenitori usati per bevande (lattina, vetro, PET)."@it .
+
+ex:EnvaseLata a owl:Class ; rdfs:subClassOf ex:TipoDeEnvase ;
+  rdfs:label "Envase lata"@es ;
+  rdfs:label "Can packaging"@en ;
+  rdfs:label "Embalagem lata"@pt ;
+  rdfs:label "Emballage canette"@fr ;
+  rdfs:label "Imballaggio lattina"@it ;
+  rdfs:comment "Envase metálico utilizado para bebidas."@es ;
+  rdfs:comment "Metal container used for beverages."@en ;
+  rdfs:comment "Recipiente metálico usado para bebidas."@pt ;
+  rdfs:comment "Récipient métallique utilisé pour les boissons."@fr ;
+  rdfs:comment "Contenitore metallico usato per bevande."@it .
+ex:EnvaseVidrio a owl:Class ; rdfs:subClassOf ex:TipoDeEnvase ;
+  rdfs:label "Envase vidrio"@es ;
+  rdfs:label "Glass packaging"@en ;
+  rdfs:label "Embalagem vidro"@pt ;
+  rdfs:label "Emballage verre"@fr ;
+  rdfs:label "Imballaggio vetro"@it ;
+  rdfs:comment "Envase de vidrio usado para bebidas."@es ;
+  rdfs:comment "Glass container used for beverages."@en ;
+  rdfs:comment "Recipiente de vidro usado para bebidas."@pt ;
+  rdfs:comment "Récipient en verre utilisé pour les boissons."@fr ;
+  rdfs:comment "Contenitore in vetro usato per bevande."@it .
+ex:EnvasePET a owl:Class ; rdfs:subClassOf ex:TipoDeEnvase ;
+  rdfs:label "Envase PET"@es ;
+  rdfs:label "PET packaging"@en ;
+  rdfs:label "Embalagem PET"@pt ;
+  rdfs:label "Emballage PET"@fr ;
+  rdfs:label "Imballaggio PET"@it ;
+  rdfs:comment "Envase plástico tipo PET usado para bebidas."@es ;
+  rdfs:comment "PET plastic container used for beverages."@en ;
+  rdfs:comment "Recipiente plástico PET usado para bebidas."@pt ;
+  rdfs:comment "Récipient en plastique PET utilisé pour les boissons."@fr ;
+  rdfs:comment "Contenitore in plastica PET usato per bevande."@it .
+
+ex:TipoDeVaso a owl:Class ;
+  rdfs:label "Tipo de vaso"@es ;
+  rdfs:label "Glass type"@en ;
+  rdfs:label "Tipo de copo"@pt ;
+  rdfs:label "Type de verre"@fr ;
+  rdfs:label "Tipo di bicchiere"@it ;
+  rdfs:comment "Modelos de vasos recomendados para servir distintas bebidas."@es ;
+  rdfs:comment "Types of glasses recommended for serving different beverages."@en ;
+  rdfs:comment "Modelos de copos recomendados para servir diferentes bebidas."@pt ;
+  rdfs:comment "Types de verres recommandés pour servir différentes boissons."@fr ;
+  rdfs:comment "Modelli di bicchieri raccomandati per servire diverse bevande."@it .
+
+ex:IngredienteBase a owl:Class ;
+  rdfs:label "Ingrediente base"@es ;
+  rdfs:label "Base ingredient"@en ;
+  rdfs:label "Ingrediente base"@pt ;
+  rdfs:label "Ingrédient de base"@fr ;
+  rdfs:label "Ingrediente base"@it ;
+  rdfs:comment "Sustancia primaria usada en la elaboración de una bebida (malta, caña, uva)."@es ;
+  rdfs:comment "Primary substance used in making a beverage (malt, cane, grape)."@en ;
+  rdfs:comment "Substância primária usada na elaboração de uma bebida (malte, cana, uva)."@pt ;
+  rdfs:comment "Substance primaire utilisée pour la fabrication d'une boisson (malt, canne, raisin)."@fr ;
+  rdfs:comment "Sostanza primaria usata nella produzione di una bevanda (malto, canna, uva)."@it .
+
+ex:PropiedadOrganoleptica a owl:Class ;
+  rdfs:label "Propiedad organoléptica"@es ;
+  rdfs:label "Organoleptic property"@en ;
+  rdfs:label "Propriedade organoléptica"@pt ;
+  rdfs:label "Propriété organoleptique"@fr ;
+  rdfs:label "Proprietà organolettica"@it ;
+  rdfs:comment "Características sensoriales de una bebida (dulzura, amargor, cuerpo)."@es ;
+  rdfs:comment "Sensory characteristics of a beverage (sweetness, bitterness, body)."@en ;
+  rdfs:comment "Características sensoriais de uma bebida (doçura, amargor, corpo)."@pt ;
+  rdfs:comment "Caractéristiques sensorielles d'une boisson (douceur, amertume, corps)."@fr ;
+  rdfs:comment "Caratteristiche sensoriali di una bevanda (dolcezza, amarezza, corpo)."@it .
+
+ex:EstacionDelAnio a owl:Class ;
+  rdfs:label "Estación del año"@es ;
+  rdfs:label "Season"@en ;
+  rdfs:label "Estação do ano"@pt ;
+  rdfs:label "Saison"@fr ;
+  rdfs:label "Stagione"@it ;
+  rdfs:comment "Períodos climáticos del año que influyen en preferencias de consumo."@es ;
+  rdfs:comment "Yearly climatic periods that influence consumption preferences."@en ;
+  rdfs:comment "Períodos climáticos do ano que influenciam preferências de consumo."@pt ;
+  rdfs:comment "Périodes climatiques annuelles influençant les préférences de consommation."@fr ;
+  rdfs:comment "Periodi climatici annuali che influenzano le preferenze di consumo."@it .
+
+ex:Verano a owl:Class ; rdfs:subClassOf ex:EstacionDelAnio ;
+  rdfs:label "Verano"@es ; rdfs:label "Summer"@en ; rdfs:label "Verão"@pt ; rdfs:label "Été"@fr ; rdfs:label "Estate"@it ;
+  rdfs:comment "Estación cálida del año, asociada a mayor consumo de bebidas frías."@es ; rdfs:comment "Warm season of the year, associated with higher consumption of cold drinks."@en ; rdfs:comment "Estação quente do ano, associada ao maior consumo de bebidas frias."@pt ; rdfs:comment "Saison chaude de l'année, associée à une consommation accrue de boissons froides."@fr ; rdfs:comment "Stagione calda dell'anno, associata a un maggiore consumo di bevande fredde."@it .
+
+ex:Invierno a owl:Class ; rdfs:subClassOf ex:EstacionDelAnio ;
+  rdfs:label "Invierno"@es ; rdfs:label "Winter"@en ; rdfs:label "Inverno"@pt ; rdfs:label "Hiver"@fr ; rdfs:label "Inverno"@it ;
+  rdfs:comment "Estación fría del año, asociada a consumo de bebidas calientes."@es ; rdfs:comment "Cold season of the year, associated with consumption of hot drinks."@en ; rdfs:comment "Estação fria do ano, associada ao consumo de bebidas quentes."@pt ; rdfs:comment "Saison froide de l'année, associée à la consommation de boissons chaudes."@fr ; rdfs:comment "Stagione fredda dell'anno, associata al consumo di bevande calde."@it .
+
+ex:Otono a owl:Class ; rdfs:subClassOf ex:EstacionDelAnio ;
+  rdfs:label "Otoño"@es ; rdfs:label "Autumn"@en ; rdfs:label "Outono"@pt ; rdfs:label "Automne"@fr ; rdfs:label "Autunno"@it ;
+  rdfs:comment "Estación de transición entre verano e invierno."@es ; rdfs:comment "Transitional season between summer and winter."@en ; rdfs:comment "Estação de transição entre verão e inverno."@pt ; rdfs:comment "Saison de transition entre l'été et l'hiver."@fr ; rdfs:comment "Stagione di transizione tra estate e inverno."@it .
+
+ex:Primavera a owl:Class ; rdfs:subClassOf ex:EstacionDelAnio ;
+  rdfs:label "Primavera"@es ; rdfs:label "Spring"@en ; rdfs:label "Primavera"@pt ; rdfs:label "Printemps"@fr ; rdfs:label "Primavera"@it ;
+  rdfs:comment "Estación de transición entre invierno y verano, asociada a festividades."@es ; rdfs:comment "Transitional season between winter and summer, associated with festivities."@en ; rdfs:comment "Estação de transição entre inverno e verão, associada a festividades."@pt ; rdfs:comment "Saison de transition entre l'hiver et l'été, associée à des festivités."@fr ; rdfs:comment "Stagione di transizione tra inverno ed estate, associata a festività."@it .
+
+########################
+# Disjointness útil    #
+########################
+[ a owl:AllDisjointClasses ;
+  owl:members ( ex:Cerveza ex:Vino ex:Destilado ) ] .
+[ a owl:AllDisjointClasses ;
+  owl:members ( ex:FestividadNacional ex:FestividadDepartamental ex:FestividadPatronal ) ] .
+[ a owl:AllDisjointClasses ;
+  owl:members ( ex:Supermercado ex:Discoteca ex:TiendaDeBarrio ex:Restaurante ) ] .
+
+#######################
+# Object Properties   #
+#######################
+
+######### Inversos específicos (evitar colisión) #########
+
+ex:tieneClima a owl:ObjectProperty ;
+  rdfs:label "tiene clima"@es ; rdfs:label "has climate"@en ; rdfs:label "tem clima"@pt ; rdfs:label "a un climat"@fr ; rdfs:label "ha clima"@it ;
+  rdfs:comment "Relación que asocia un departamento con su tipo de clima."@es ; rdfs:comment "Relation that associates a department with its climate type."@en ; rdfs:comment "Relação que associa um departamento com seu tipo de clima."@pt ; rdfs:comment "Relation qui associe un département à son type de climat."@fr ; rdfs:comment "Relazione che associa un dipartimento al suo tipo di clima."@it ;
+  rdfs:domain ex:Departamento ;
+  rdfs:range  ex:Clima ;
+  owl:inverseOf ex:climaCaracterizaA .
+
+ex:climaCaracterizaA a owl:ObjectProperty ;
+  rdfs:label "clima caracteriza a"@es ; rdfs:label "climate characterizes"@en ; rdfs:label "clima caracteriza"@pt ; rdfs:label "le climat caractérise"@fr ; rdfs:label "il clima caratterizza"@it ;
+  rdfs:comment "Relación inversa: el clima caracteriza al departamento."@es ; rdfs:comment "Inverse relation: the climate characterizes the department."@en ; rdfs:comment "Relação inversa: o clima caracteriza o departamento."@pt ; rdfs:comment "Relation inverse : le climat caractérise le département."@fr ; rdfs:comment "Relazione inversa: il clima caratterizza il dipartimento."@it ;
+  rdfs:domain ex:Clima ;
+  rdfs:range  ex:Departamento .
+
+ex:tienePropiedad a owl:ObjectProperty ;
+  rdfs:label "tiene propiedad"@es ; rdfs:label "has property"@en ; rdfs:label "tem propriedade"@pt ; rdfs:label "a la propriété"@fr ; rdfs:label "ha proprietà"@it ;
+  rdfs:domain ex:BebidaAlcoholica ;
+  rdfs:range  ex:PropiedadOrganoleptica ;
+  owl:inverseOf ex:propiedadCaracterizaA .
+
+ex:propiedadCaracterizaA a owl:ObjectProperty ;
+  rdfs:label "propiedad caracteriza a"@es ; rdfs:label "property characterizes"@en ; rdfs:label "propriedade caracteriza"@pt ; rdfs:label "la propriété caractérise"@fr ; rdfs:label "la proprietà caratterizza"@it ;
+  rdfs:domain ex:PropiedadOrganoleptica ;
+  rdfs:range  ex:BebidaAlcoholica .
+
+######### Declaraciones de inversos referenciados #########
+
+ex:seConsumeEn a owl:ObjectProperty ;
+  rdfs:label "se consume en"@es ; rdfs:label "is consumed in"@en ; rdfs:label "é consumido em"@pt ; rdfs:label "est consommé en"@fr ; rdfs:label "è consumato in"@it ;
+  rdfs:domain ex:BebidaAlcoholica ;
+  rdfs:range  ex:Departamento ;
+  owl:inverseOf ex:esLugarDeConsumo .
+
+ex:esLugarDeConsumo a owl:ObjectProperty ;
+  rdfs:label "es lugar de consumo"@es ; rdfs:label "is place of consumption"@en ; rdfs:label "é local de consumo"@pt ; rdfs:label "est lieu de consommation"@fr ; rdfs:label "è luogo di consumo"@it ;
+  rdfs:domain ex:Departamento ;
+  rdfs:range  ex:BebidaAlcoholica .
+
+ex:seAsociaAEvento a owl:ObjectProperty ;
+  rdfs:label "se asocia a evento"@es ; rdfs:label "is associated with event"@en ; rdfs:label "é associado a evento"@pt ; rdfs:label "est associé à l'événement"@fr ; rdfs:label "è associato a evento"@it ;
+  rdfs:domain ex:BebidaAlcoholica ;
+  rdfs:range  ex:Evento ;
+  owl:inverseOf ex:favoreceConsumo .
+
+ex:favoreceConsumo a owl:ObjectProperty ;
+  rdfs:label "favorece consumo"@es ; rdfs:label "favors consumption"@en ; rdfs:label "favorece consumo"@pt ; rdfs:label "favorise la consommation"@fr ; rdfs:label "favorisce il consumo"@it ;
+  rdfs:domain ex:Evento ;
+  rdfs:range  ex:BebidaAlcoholica .
+
+ex:ocurreEn a owl:ObjectProperty ;
+  rdfs:label "ocurre en"@es ; rdfs:label "occurs in"@en ; rdfs:label "ocorre em"@pt ; rdfs:label "se déroule en"@fr ; rdfs:label "si svolge in"@it ;
+  rdfs:domain ex:Evento ;
+  rdfs:range  ex:Departamento ;
+  owl:inverseOf ex:esSedeDe .
+
+ex:esSedeDe a owl:ObjectProperty ;
+  rdfs:label "es sede de"@es ; rdfs:label "is venue of"@en ; rdfs:label "é sede de"@pt ; rdfs:label "est le siège de"@fr ; rdfs:label "è sede di"@it ;
+  rdfs:domain ex:Departamento ;
+  rdfs:range  ex:Evento .
+
+ex:perteneceARegion a owl:ObjectProperty ;
+  rdfs:label "pertenece a región"@es ; rdfs:label "belongs to region"@en ; rdfs:label "pertence à região"@pt ; rdfs:label "appartient à la région"@fr ; rdfs:label "appartiene alla regione"@it ;
+  rdfs:domain ex:Departamento ;
+  rdfs:range  ex:RegionGeografica ;
+  owl:inverseOf ex:incluyeDepartamento .
+
+ex:incluyeDepartamento a owl:ObjectProperty ;
+  rdfs:label "incluye departamento"@es ; rdfs:label "includes department"@en ; rdfs:label "inclui departamento"@pt ; rdfs:label "inclut le département"@fr ; rdfs:label "include il dipartimento"@it ;
+  rdfs:domain ex:RegionGeografica ;
+  rdfs:range  ex:Departamento .
+
+######### Propiedades usadas en datos y no declaradas #########
+
+# Object properties
+
+ex:seAsociaConMusica a owl:ObjectProperty ;
+  rdfs:label "se asocia con música"@es ; rdfs:label "is associated with music"@en ; rdfs:label "é associado com música"@pt ; rdfs:label "est associé à la musique"@fr ; rdfs:label "è associato alla musica"@it ;
+  rdfs:comment "Indica que una bebida se asocia con un estilo musical específico."@es ; rdfs:comment "Indicates that a beverage is associated with a specific music style."@en ; rdfs:comment "Indica que uma bebida está associada a um estilo musical específico."@pt ; rdfs:comment "Indique qu'une boisson est associée à un style musical spécifique."@fr ; rdfs:comment "Indica che una bevanda è associata a uno stile musicale specifico."@it ;
+  rdfs:domain ex:BebidaAlcoholica ;
+  rdfs:range  ex:EstiloMusica .
+
+ex:compiteCon a owl:ObjectProperty ;
+  rdfs:label "compite con"@es ; rdfs:label "competes with"@en ; rdfs:label "compete com"@pt ; rdfs:label "rivalise avec"@fr ; rdfs:label "compete con"@it ;
+  rdfs:comment "Relación simétrica entre bebidas que compiten en el mercado."@es ; rdfs:comment "Symmetric relationship between beverages competing in the market."@en ; rdfs:comment "Relação simétrica entre bebidas que competem no mercado."@pt ; rdfs:comment "Relation symétrique entre des boissons concurrentes sur le marché."@fr ; rdfs:comment "Relazione simmetrica tra bevande che competono sul mercato."@it ;
+  rdfs:domain ex:BebidaAlcoholica ;
+  rdfs:range  ex:BebidaAlcoholica ;
+  owl:SymmetricProperty true .
+
+ex:esPreferidoEn a owl:ObjectProperty ;
+  rdfs:label "es preferido en"@es ; rdfs:label "is preferred in"@en ; rdfs:label "é preferido em"@pt ; rdfs:label "est préféré en"@fr ; rdfs:label "è preferito in"@it ;
+  rdfs:comment "Indica el tipo de envase preferido en un evento específico."@es ; rdfs:comment "Indicates the preferred packaging type for a specific event."@en ; rdfs:comment "Indica o tipo de embalagem preferido em um evento específico."@pt ; rdfs:comment "Indique le type d'emballage préféré lors d'un événement spécifique."@fr ; rdfs:comment "Indica il tipo di imballaggio preferito per un evento specifico."@it ;
+  rdfs:domain ex:TipoDeEnvase ;
+  rdfs:range  ex:Evento .
+
+ex:asociadaAEvento a owl:ObjectProperty ;
+  rdfs:label "asociada a evento"@es ; rdfs:label "associated with event"@en ; rdfs:label "associada a evento"@pt ; rdfs:label "associée à un événement"@fr ; rdfs:label "associata a evento"@it ;
+  rdfs:comment "Relaciona eventos con información de ventas."@es ; rdfs:comment "Relates events with sales information."@en ; rdfs:comment "Relaciona eventos com informações de vendas."@pt ; rdfs:comment "Associe les événements aux informations de ventes."@fr ; rdfs:comment "Associa gli eventi alle informazioni di vendita."@it ;
+  rdfs:domain ex:Ventas ;
+  rdfs:range  ex:Evento .
+
+ex:ocurreEnDepartamento a owl:ObjectProperty ;
+  rdfs:label "ocurre en departamento"@es ; rdfs:label "occurs in department"@en ; rdfs:label "ocorre em departamento"@pt ; rdfs:label "se déroule dans le département"@fr ; rdfs:label "si svolge nel dipartimento"@it ;
+  rdfs:comment "Especifica el departamento donde ocurren ventas o se observa demanda."@es ; rdfs:comment "Specifies the department where sales occur or demand is observed."@en ; rdfs:comment "Especifica o departamento onde as vendas ocorrem ou a demanda é observada."@pt ; rdfs:comment "Spécifie le département où les ventes se produisent ou la demande est observée."@fr ; rdfs:comment "Specifica il dipartimento in cui si verificano le vendite o la domanda osservata."@it ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( ex:Ventas ex:DemandaPromedio ) ] ;
+  rdfs:range  ex:Departamento .
+
+ex:aplicaABebida a owl:ObjectProperty ;
+  rdfs:label "aplica a bebida"@es ; rdfs:label "applies to beverage"@en ; rdfs:label "aplica à bebida"@pt ; rdfs:label "s'applique à la boisson"@fr ; rdfs:label "si applica alla bevanda"@it ;
+  rdfs:comment "Vincula restricciones legales a bebidas específicas."@es ; rdfs:comment "Links legal restrictions to specific beverages."@en ; rdfs:comment "Vincula restrições legais a bebidas específicas."@pt ; rdfs:comment "Lie les restrictions légales à des boissons spécifiques."@fr ; rdfs:comment "Collega le restrizioni legali a bevande specifiche."@it ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( ex:RestriccionLegal owl:Thing ) ] ;
+  rdfs:range ex:BebidaAlcoholica .
+
+
+# Objetos adicionales de la ontología
+ex:seVendeEn a owl:ObjectProperty ;
+  rdfs:label "se vende en"@es ; rdfs:label "is sold in"@en ; rdfs:label "é vendido em"@pt ; rdfs:label "est vendu en"@fr ; rdfs:label "è venduto in"@it ;
+  rdfs:comment "Indica los canales de venta donde se distribuye una bebida."@es ; rdfs:comment "Indicates the sales channels where a beverage is distributed."@en ; rdfs:comment "Indica os canais de venda onde uma bebida é distribuída."@pt ; rdfs:comment "Indique les canaux de vente où une boisson est distribuée."@fr ; rdfs:comment "Indica i canali di vendita dove una bevanda è distribuita."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range ex:CanalDeVenta ;
+  owl:inverseOf ex:vende .
+
+ex:esDominanteEn a owl:ObjectProperty ;
+  rdfs:label "es dominante en"@es ; rdfs:label "is dominant in"@en ; rdfs:label "é dominante em"@pt ; rdfs:label "est dominant dans"@fr ; rdfs:label "è dominante in"@it ;
+  rdfs:comment "Especifica departamentos donde un distribuidor tiene presencia dominante."@es ; rdfs:comment "Specifies departments where a distributor has dominant presence."@en ; rdfs:comment "Especifica departamentos onde um distribuidor tem presença dominante."@pt ; rdfs:comment "Spécifie les départements où un distributeur a une présence dominante."@fr ; rdfs:comment "Specifica i dipartimenti in cui un distributore ha una presenza dominante."@it ;
+  rdfs:domain ex:Distribuidor ; rdfs:range ex:Departamento ;
+  owl:inverseOf ex:tieneDistribuidorDominante .
+
+ex:esFavorecidaPor a owl:ObjectProperty ;
+  rdfs:label "es favorecida por"@es ; rdfs:label "is favored by"@en ; rdfs:label "é favorecida por"@pt ; rdfs:label "est favorisée par"@fr ; rdfs:label "è favorita da"@it ;
+  rdfs:comment "Vincula bebidas a los segmentos demográficos que las prefieren."@es ; rdfs:comment "Links beverages to demographic segments that prefer them."@en ; rdfs:comment "Vincula bebidas aos segmentos demográficos que as preferem."@pt ; rdfs:comment "Lie les boissons aux segments démographiques qui les préfèrent."@fr ; rdfs:comment "Collega le bevande ai segmenti demografici che le preferiscono."@it ;
+  rdfs:domain ex:BebidaAlcoholica ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( ex:RangoDeEdad ex:NivelSocioEconomico ) ] ;
+  owl:inverseOf ex:prefiere .
+
+ex:aplicaADepartamento a owl:ObjectProperty ;
+  rdfs:label "aplica a departamento"@es ; rdfs:label "applies to department"@en ; rdfs:label "aplica ao departamento"@pt ; rdfs:label "s'applique au département"@fr ; rdfs:label "si applica al dipartimento"@it ;
+  rdfs:comment "Vincula restricciones legales a departamentos específicos."@es ; rdfs:comment "Links legal restrictions to specific departments."@en ; rdfs:comment "Vincula restrições legais a departamentos específicos."@pt ; rdfs:comment "Lie les restrictions légales à des départements spécifiques."@fr ; rdfs:comment "Collega le restrizioni legali a dipartimenti specifici."@it ;
+  rdfs:domain ex:RestriccionLegal ; rdfs:range ex:Departamento ;
+  owl:inverseOf ex:tieneRestriccion .
+
+ex:aplicaAEvento a owl:ObjectProperty ;
+  rdfs:label "aplica a evento"@es ; rdfs:label "applies to event"@en ; rdfs:label "aplica ao evento"@pt ; rdfs:label "s'applique à l'événement"@fr ; rdfs:label "si applica all'evento"@it ;
+  rdfs:comment "Vincula restricciones legales a eventos externos específicos."@es ; rdfs:comment "Links legal restrictions to specific external events."@en ; rdfs:comment "Vincula restrições legais a eventos externos específicos."@pt ; rdfs:comment "Lie les restrictions légales à des événements externes spécifiques."@fr ; rdfs:comment "Collega le restrizioni legali a eventi esterni specifici."@it ;
+  rdfs:domain ex:RestriccionLegal ; rdfs:range ex:AcontecimientoExterno ;
+  owl:inverseOf ex:esReguladoPor .
+
+ex:requiereEnvase a owl:ObjectProperty ;
+  rdfs:label "requiere envase"@es ; rdfs:label "requires packaging"@en ; rdfs:label "requere embalagem"@pt ; rdfs:label "requiert un emballage"@fr ; rdfs:label "richiede confezione"@it ;
+  rdfs:comment "Especifica el tipo de envase requerido para una bebida."@es ; rdfs:comment "Specifies the packaging type required for a beverage."@en ; rdfs:comment "Especifica o tipo de embalagem necessário para uma bebida."@pt ; rdfs:comment "Spécifie le type d'emballage requis pour une boisson."@fr ; rdfs:comment "Specifica il tipo di imballaggio richiesto per una bevanda."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range ex:TipoDeEnvase ;
+  owl:inverseOf ex:contieneA .
+
+ex:usaIngrediente a owl:ObjectProperty ;
+  rdfs:label "usa ingrediente"@es ; rdfs:label "uses ingredient"@en ; rdfs:label "usa ingrediente"@pt ; rdfs:label "utilise un ingrédient"@fr ; rdfs:label "usa ingrediente"@it ;
+  rdfs:comment "Indica los ingredientes base utilizados en la elaboración de una bebida."@es ; rdfs:comment "Indicates the base ingredients used in making a beverage."@en ; rdfs:comment "Indica os ingredientes base utilizados na elaboração de uma bebida."@pt ; rdfs:comment "Indique les ingrédients de base utilisés dans la fabrication d'une boisson."@fr ; rdfs:comment "Indica gli ingredienti base utilizzati nella produzione di una bevanda."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range ex:IngredienteBase ;
+  owl:inverseOf ex:esIngredienteDe .
+
+ex:seRecomiendaVaso a owl:ObjectProperty ;
+  rdfs:label "se recomienda vaso"@es ; rdfs:label "recommended glass"@en ; rdfs:label "copo recomendado"@pt ; rdfs:label "verre recommandé"@fr ; rdfs:label "bicchiere raccomandato"@it ;
+  rdfs:comment "Especifica el tipo de vaso recomendado para servir una bebida."@es ; rdfs:comment "Specifies the recommended glass type for serving a beverage."@en ; rdfs:comment "Especifica o tipo de copo recomendado para servir uma bebida."@pt ; rdfs:comment "Spécifie le type de verre recommandé pour servir une boisson."@fr ; rdfs:comment "Specifica il tipo di bicchiere raccomandato per servire una bevanda."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range ex:TipoDeVaso ;
+  owl:inverseOf ex:esRecomendadoPara .
+
+ex:esPopularEn a owl:ObjectProperty ;
+  rdfs:label "es popular en"@es ; rdfs:label "is popular in"@en ; rdfs:label "é popular em"@pt ; rdfs:label "est populaire en"@fr ; rdfs:label "è popolare in"@it ;
+  rdfs:comment "Indica las estaciones del año en que una bebida es popular."@es ; rdfs:comment "Indicates the seasons when a beverage is popular."@en ; rdfs:comment "Indica as estações do ano em que uma bebida é popular."@pt ; rdfs:comment "Indique les saisons lors desquelles une boisson est populaire."@fr ; rdfs:comment "Indica le stagioni in cui una bevanda è popolare."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range ex:EstacionDelAnio ;
+  owl:inverseOf ex:favorece .
+
+ex:esPatrocinadoPor a owl:ObjectProperty ;
+  rdfs:label "es patrocinado por"@es ; rdfs:label "is sponsored by"@en ; rdfs:label "é patrocinado por"@pt ; rdfs:label "est parrainé par"@fr ; rdfs:label "è sponsorizzato da"@it ;
+  rdfs:comment "Vincula campañas publicitarias con celebridades locales que las patrocinan."@es ; rdfs:comment "Links advertising campaigns with local celebrities who sponsor them."@en ; rdfs:comment "Vincula campanhas publicitárias com celebridades locais que as patrocinam."@pt ; rdfs:comment "Lie les campagnes publicitaires aux célébrités locales qui les parrainent."@fr ; rdfs:comment "Collega le campagne pubblicitarie con le celebrità locali che le sponsorizzano."@it ;
+  rdfs:domain ex:CampañaPublicitaria ; rdfs:range ex:CelebridadLocal ;
+  owl:inverseOf ex:participa .
+
+ex:promociona a owl:ObjectProperty ;
+  rdfs:label "promociona"@es ; rdfs:label "promotes"@en ; rdfs:label "promove"@pt ; rdfs:label "promeut"@fr ; rdfs:label "promuove"@it ;
+  rdfs:comment "Indica que una campaña publicitaria promueve una bebida específica."@es ; rdfs:comment "Indicates that an advertising campaign promotes a specific beverage."@en ; rdfs:comment "Indica que uma campanha publicitária promove uma bebida específica."@pt ; rdfs:comment "Indique qu'une campagne publicitaire promeut une boisson spécifique."@fr ; rdfs:comment "Indica che una campagna pubblicitaria promuove una bevanda specifica."@it ;
+  rdfs:domain ex:CampañaPublicitaria ; rdfs:range ex:BebidaAlcoholica ;
+  owl:inverseOf ex:esPromocionadaPor .
+
+ex:paraProducto a owl:ObjectProperty ;
+  rdfs:label "para producto"@es ; rdfs:label "for product"@en ; rdfs:label "para produto"@pt ; rdfs:label "pour produit"@fr ; rdfs:label "per prodotto"@it ;
+  rdfs:comment "Especifica la bebida asociada a información de ventas o demanda."@es ; rdfs:comment "Specifies the beverage associated with sales or demand information."@en ; rdfs:comment "Especifica a bebida associada às informações de vendas ou demanda."@pt ; rdfs:comment "Spécifie la boisson associée aux informations de ventes ou de demande."@fr ; rdfs:comment "Specifica la bevanda associata alle informazioni di vendita o domanda."@it ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( ex:Ventas ex:DemandaPromedio ) ] ;
+  rdfs:range ex:BebidaAlcoholica .
+
+ex:canalVenta a owl:ObjectProperty ;
+  rdfs:label "canal de venta"@es ; rdfs:label "sales channel"@en ; rdfs:label "canal de venda"@pt ; rdfs:label "canal de vente"@fr ; rdfs:label "canale di vendita"@it ;
+  rdfs:comment "Especifica el canal de venta donde ocurren las transacciones."@es ; rdfs:comment "Specifies the sales channel where transactions occur."@en ; rdfs:comment "Especifica o canal de venda onde as transações ocorrem."@pt ; rdfs:comment "Spécifie le canal de vente où se produisent les transactions."@fr ; rdfs:comment "Specifica il canale di vendita in cui si verificano le transazioni."@it ;
+  rdfs:domain ex:Ventas ; rdfs:range ex:CanalDeVenta ;
+  owl:inverseOf ex:esUsadoEnVenta .
+
+ex:seAsociaAAcontecimiento a owl:ObjectProperty ;
+  rdfs:label "se asocia a acontecimiento"@es ; rdfs:label "is associated to occurrence"@en ; rdfs:label "associa-se ao acontecimento"@pt ; rdfs:label "est associé à l'évènement"@fr ; rdfs:label "si associa all'avvenimento"@it ;
+  rdfs:comment "Vincula campañas publicitarias con eventos externos."@es ; rdfs:comment "Links advertising campaigns with external events."@en ; rdfs:comment "Vincula campanhas publicitárias com eventos externos."@pt ; rdfs:comment "Lie les campagnes publicitaires aux événements externes."@fr ; rdfs:comment "Collega le campagne pubblicitarie con gli eventi esterni."@it ;
+  rdfs:domain ex:CampañaPublicitaria ; rdfs:range ex:AcontecimientoExterno ;
+  owl:inverseOf ex:esPromovibleMediante .
+
+#################################################################
+# Inverse object properties added to provide multilingual labels #
+#################################################################
+
+ex:vende a owl:ObjectProperty ;
+  rdfs:label "vende"@es ; rdfs:label "sells"@en ; rdfs:label "vende"@pt ; rdfs:label "vend"@fr ; rdfs:label "vende"@it ;
+  rdfs:comment "Propiedad inversa de 'se vende en' — indica que un canal vende un producto."@es ; rdfs:comment "Inverse of 'se vende en' — indicates a channel sells a product."@en ; rdfs:comment "Propriedade inversa de 'se vende en' — indica que um canal vende um produto."@pt ; rdfs:comment "Inverse de 'se vende en' — indique qu'un canal vend un produit."@fr ; rdfs:comment "Inverse di 'se vende en' — indica che un canale vende un prodotto."@it ;
+  rdfs:domain ex:CanalDeVenta ; rdfs:range ex:BebidaAlcoholica ;
+  owl:inverseOf ex:seVendeEn .
+
+ex:tieneDistribuidorDominante a owl:ObjectProperty ;
+  rdfs:label "tiene distribuidor dominante"@es ; rdfs:label "has dominant distributor"@en ; rdfs:label "tem distribuidor dominante"@pt ; rdfs:label "a un distributeur dominant"@fr ; rdfs:label "ha distributore dominante"@it ;
+  rdfs:comment "Inverse de 'es dominante en' — indica que un departamento tiene un distribuidor dominante."@es ; rdfs:comment "Inverse of 'es dominante en' — indicates a department has a dominant distributor."@en ; rdfs:comment "Inverse de 'es dominante en' — indica que um departamento tem um distribuidor dominante."@pt ; rdfs:comment "Inverse de 'es dominante en' — indique qu'un département a un distributeur dominant."@fr ; rdfs:comment "Inverse di 'es dominante en' — indica che un dipartimento ha un distributore dominante."@it ;
+  rdfs:domain ex:Departamento ; rdfs:range ex:Distribuidor ;
+  owl:inverseOf ex:esDominanteEn .
+
+ex:contieneA a owl:ObjectProperty ;
+  rdfs:label "contiene a"@es ; rdfs:label "contains"@en ; rdfs:label "contém"@pt ; rdfs:label "contient"@fr ; rdfs:label "contiene"@it ;
+  rdfs:comment "Inverse de 'requiere envase' — indica que un envase contiene a una bebida."@es ; rdfs:comment "Inverse of 'requiere envase' — indicates a packaging contains a beverage."@en ; rdfs:comment "Inverse de 'requiere envase' — indica que uma embalagem contém uma bebida."@pt ; rdfs:comment "Inverse de 'requiere envase' — indique qu'un emballage contient une boisson."@fr ; rdfs:comment "Inverse di 'requiere envase' — indica che un imballaggio contiene una bevanda."@it ;
+  rdfs:domain ex:TipoDeEnvase ; rdfs:range ex:BebidaAlcoholica ;
+  owl:inverseOf ex:requiereEnvase .
+
+ex:esIngredienteDe a owl:ObjectProperty ;
+  rdfs:label "es ingrediente de"@es ; rdfs:label "is ingredient of"@en ; rdfs:label "é ingrediente de"@pt ; rdfs:label "est ingrédient de"@fr ; rdfs:label "è ingrediente di"@it ;
+  rdfs:comment "Inverse de 'usa ingrediente' — indica que un ingrediente forma parte de una bebida."@es ; rdfs:comment "Inverse of 'usa ingrediente' — indicates an ingredient is used in a beverage."@en ; rdfs:comment "Inverse de 'usa ingrediente' — indica que um ingrediente faz parte de uma bebida."@pt ; rdfs:comment "Inverse de 'usa ingrediente' — indique qu'un ingrédient fait partie d'une boisson."@fr ; rdfs:comment "Inverse di 'usa ingrediente' — indica che un ingrediente fa parte di una bevanda."@it ;
+  rdfs:domain ex:IngredienteBase ; rdfs:range ex:BebidaAlcoholica ;
+  owl:inverseOf ex:usaIngrediente .
+
+ex:esRecomendadoPara a owl:ObjectProperty ;
+  rdfs:label "es recomendado para"@es ; rdfs:label "is recommended for"@en ; rdfs:label "é recomendado para"@pt ; rdfs:label "est recommandé pour"@fr ; rdfs:label "è raccomandato per"@it ;
+  rdfs:comment "Inverse de 'se recomienda vaso' — indica para qué bebida se recomienda un tipo de vaso."@es ; rdfs:comment "Inverse of 'se recomienda vaso' — indicates which beverage a glass type is recommended for."@en ; rdfs:comment "Inverse de 'se recomienda vaso' — indica para qual bebida um tipo de copo é recomendado."@pt ; rdfs:comment "Inverse de 'se recomienda vaso' — indique pour quelle boisson un type de verre est recommandé."@fr ; rdfs:comment "Inverse di 'se recomienda vaso' — indica per quale bevanda è raccomandato un tipo di bicchiere."@it ;
+  rdfs:domain ex:TipoDeVaso ; rdfs:range ex:BebidaAlcoholica ;
+  owl:inverseOf ex:seRecomiendaVaso .
+
+ex:favorece a owl:ObjectProperty ;
+  rdfs:label "favorece"@es ; rdfs:label "favours"@en ; rdfs:label "favorece"@pt ; rdfs:label "favorise"@fr ; rdfs:label "favorisce"@it ;
+  rdfs:comment "Inverse de 'es popular en' — indica qué bebidas es favorecida por una estación."@es ; rdfs:comment "Inverse of 'es popular en' — indicates which beverages are favoured by a season."@en ; rdfs:comment "Inverse de 'es popular en' — indica quais bebidas são favorecidas por uma estação."@pt ; rdfs:comment "Inverse de 'es popular en' — indique quelles boissons sont favorisées par une saison."@fr ; rdfs:comment "Inverse di 'es popular en' — indica quali bevande sono favorite da una stagione."@it ;
+  rdfs:domain ex:EstacionDelAnio ; rdfs:range ex:BebidaAlcoholica ;
+  owl:inverseOf ex:esPopularEn .
+
+ex:participa a owl:ObjectProperty ;
+  rdfs:label "participa"@es ; rdfs:label "participates"@en ; rdfs:label "participa"@pt ; rdfs:label "participe"@fr ; rdfs:label "partecipa"@it ;
+  rdfs:comment "Inverse de 'es patrocinado por' — indica en qué campaña participa una celebridad."@es ; rdfs:comment "Inverse of 'es patrocinado por' — indicates which campaign a celebrity participates in."@en ; rdfs:comment "Inverse de 'es patrocinado por' — indica em qual campanha uma celebridade participa."@pt ; rdfs:comment "Inverse de 'es patrocinado por' — indique dans quelle campagne une célébrité participe."@fr ; rdfs:comment "Inverse di 'es patrocinado por' — indica in quale campagna partecipa una celebrità."@it ;
+  rdfs:domain ex:CelebridadLocal ; rdfs:range ex:CampañaPublicitaria ;
+  owl:inverseOf ex:esPatrocinadoPor .
+
+ex:esPromocionadaPor a owl:ObjectProperty ;
+  rdfs:label "es promocionada por"@es ; rdfs:label "is promoted by"@en ; rdfs:label "é promovida por"@pt ; rdfs:label "est promue par"@fr ; rdfs:label "è promossa da"@it ;
+  rdfs:comment "Inverse de 'promociona' — indica qué campaña promociona una bebida."@es ; rdfs:comment "Inverse of 'promociona' — indicates which campaign promotes a beverage."@en ; rdfs:comment "Inverse de 'promociona' — indica qual campanha promove uma bebida."@pt ; rdfs:comment "Inverse de 'promociona' — indique quelle campagne promeut une boisson."@fr ; rdfs:comment "Inverse di 'promociona' — indica quale campagna promuove una bevanda."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range ex:CampañaPublicitaria ;
+  owl:inverseOf ex:promociona .
+
+ex:esUsadoEnVenta a owl:ObjectProperty ;
+  rdfs:label "es usado en venta"@es ; rdfs:label "is used in sales"@en ; rdfs:label "é usado em vendas"@pt ; rdfs:label "est utilisé en vente"@fr ; rdfs:label "è usato nelle vendite"@it ;
+  rdfs:comment "Inverse de 'canalVenta' — indica las ventas donde se usa un canal."@es ; rdfs:comment "Inverse of 'canalVenta' — indicates the sales where a channel is used."@en ; rdfs:comment "Inverse de 'canalVenta' — indica as vendas onde um canal é usado."@pt ; rdfs:comment "Inverse de 'canalVenta' — indique les ventes où un canal est utilisé."@fr ; rdfs:comment "Inverse di 'canalVenta' — indica le vendite dove un canale è usato."@it ;
+  rdfs:domain ex:CanalDeVenta ; rdfs:range ex:Ventas ;
+  owl:inverseOf ex:canalVenta .
+
+ex:esReguladoPor a owl:ObjectProperty ;
+  rdfs:label "es regulado por"@es ; rdfs:label "is regulated by"@en ; rdfs:label "é regulado por"@pt ; rdfs:label "est régulé par"@fr ; rdfs:label "è regolato da"@it ;
+  rdfs:comment "Inverse de 'aplica a evento' — indica qué restricciones regulan un acontecimiento externo."@es ; rdfs:comment "Inverse of 'aplica a evento' — indicates which restrictions regulate an external occurrence."@en ; rdfs:comment "Inverse de 'aplica a evento' — indica quais restrições regulam um acontecimento externo."@pt ; rdfs:comment "Inverse de 'aplica a evento' — indique quelles restrictions régulent un événement externe."@fr ; rdfs:comment "Inverse di 'aplica a evento' — indica quali restrizioni regolano un avvenimento esterno."@it ;
+  rdfs:domain ex:AcontecimientoExterno ; rdfs:range ex:RestriccionLegal ;
+  owl:inverseOf ex:aplicaAEvento .
+
+######################
+# Data Properties    #
+######################
+
+ex:tieneABV a owl:DatatypeProperty ;
+  rdfs:label "tiene ABV"@es ; rdfs:label "has ABV"@en ; rdfs:label "tem ABV"@pt ; rdfs:label "taux d'alcool (ABV)"@fr ; rdfs:label "ha ABV"@it ;
+  rdfs:comment "Porcentaje de alcohol por volumen (ABV) de la bebida."@es ; rdfs:comment "Alcohol by volume percentage (ABV) of the beverage."@en ; rdfs:comment "Percentual de álcool por volume (ABV) da bebida."@pt ; rdfs:comment "Pourcentage d'alcool par volume (ABV) de la boisson."@fr ; rdfs:comment "Percentuale di alcol per volume (ABV) della bevanda."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float ; a owl:FunctionalProperty .
+
+ex:nombreProducto a owl:DatatypeProperty ;
+  rdfs:label "nombre de producto"@es ; rdfs:label "product name"@en ; rdfs:label "nome do produto"@pt ; rdfs:label "nom du produit"@fr ; rdfs:label "nome del prodotto"@it ;
+  rdfs:comment "Nombre comercial del producto específico."@es ; rdfs:comment "Commercial name of the specific product."@en ; rdfs:comment "Nome comercial do produto específico."@pt ; rdfs:comment "Nom commercial du produit spécifique."@fr ; rdfs:comment "Nome commerciale del prodotto specifico."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:string ; a owl:FunctionalProperty .
+
+ex:nombreMarca a owl:DatatypeProperty ;
+  rdfs:label "nombre marca"@es ; rdfs:label "brand name"@en ; rdfs:label "nome da marca"@pt ; rdfs:label "nom de la marque"@fr ; rdfs:label "nome del marchio"@it ;
+  rdfs:comment "Marca comercial asociada al producto."@es ; rdfs:comment "Commercial brand associated with the product."@en ; rdfs:comment "Marca comercial associada ao produto."@pt ; rdfs:comment "Marque commerciale associée au produit."@fr ; rdfs:comment "Marchio commerciale associato al prodotto."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:string .
+
+ex:esPrecioPromedio a owl:DatatypeProperty ;
+  rdfs:label "precio promedio"@es ; rdfs:label "average price"@en ; rdfs:label "preço médio"@pt ; rdfs:label "prix moyen"@fr ; rdfs:label "prezzo medio"@it ;
+  rdfs:comment "Precio medio de venta del producto (moneda local)."@es ; rdfs:comment "Average selling price of the product (local currency)."@en ; rdfs:comment "Preço médio de venda do produto (moeda local)."@pt ; rdfs:comment "Prix moyen de vente du produit (monnaie locale)."@fr ; rdfs:comment "Prezzo medio di vendita del prodotto (valuta locale)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float .
+
+ex:rangoPrecioMin a owl:DatatypeProperty ;
+  rdfs:label "rango precio mínimo"@es ; rdfs:label "price range min"@en ; rdfs:label "faixa preço mínimo"@pt ; rdfs:label "fourchette prix min"@fr ; rdfs:label "fascia prezzo min"@it ;
+  rdfs:comment "Valor mínimo esperado en la banda de precios del producto."@es ; rdfs:comment "Minimum value in the product's price range."@en ; rdfs:comment "Valor mínimo na faixa de preços do produto."@pt ; rdfs:comment "Valeur minimale dans la fourchette de prix du produit."@fr ; rdfs:comment "Valore minimo nella fascia di prezzo del prodotto."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float .
+
+ex:rangoPrecioMax a owl:DatatypeProperty ;
+  rdfs:label "rango precio máximo"@es ; rdfs:label "price range max"@en ; rdfs:label "faixa preço máximo"@pt ; rdfs:label "fourchette prix max"@fr ; rdfs:label "fascia prezzo max"@it ;
+  rdfs:comment "Valor máximo esperado en la banda de precios del producto."@es ; rdfs:comment "Maximum value in the product's price range."@en ; rdfs:comment "Valor máximo na faixa de preços do produto."@pt ; rdfs:comment "Valeur maximale dans la fourchette de prix du produit."@fr ; rdfs:comment "Valore massimo nella fascia di prezzo del prodotto."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float .
+
+ex:costeProduccion a owl:DatatypeProperty ;
+  rdfs:label "coste de producción"@es ; rdfs:label "production cost"@en ; rdfs:label "custo de produção"@pt ; rdfs:label "coût de production"@fr ; rdfs:label "costo di produzione"@it ;
+  rdfs:comment "Coste estimado de producción por unidad (referencial)."@es ; rdfs:comment "Estimated production cost per unit (referential)."@en ; rdfs:comment "Custo estimado de produção por unidade (referencial)."@pt ; rdfs:comment "Coût estimé de production par unité (référentiel)."@fr ; rdfs:comment "Costo stimato di produzione per unità (riferimento)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float .
+
+ex:indicePreferencia a owl:DatatypeProperty ;
+  rdfs:label "indice de preferencia"@es ; rdfs:label "preference index"@en ; rdfs:label "índice de preferência"@pt ; rdfs:label "indice de préférence"@fr ; rdfs:label "indice di preferenza"@it ;
+  rdfs:comment "Índice relativo de preferencia entre consumidores (0-1)."@es ; rdfs:comment "Relative preference index among consumers (0-1)."@en ; rdfs:comment "Índice relativo de preferência entre consumidores (0-1)."@pt ; rdfs:comment "Indice relatif de préférence parmi les consommateurs (0-1)."@fr ; rdfs:comment "Indice relativo di preferenza tra i consumatori (0-1)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float .
+
+ex:impactoImpuesto a owl:DatatypeProperty ;
+  rdfs:label "impacto de impuesto"@es ; rdfs:label "tax impact"@en ; rdfs:label "impacto do imposto"@pt ; rdfs:label "impact fiscal"@fr ; rdfs:label "impatto fiscale"@it ;
+  rdfs:comment "Impacto porcentual de impuestos en el precio o demanda."@es ; rdfs:comment "Percentage impact of taxes on price or demand."@en ; rdfs:comment "Impacto percentual de impostos no preço ou demanda."@pt ; rdfs:comment "Impact fiscal en pourcentage sur le prix ou la demande."@fr ; rdfs:comment "Impatto percentuale delle tasse sul prezzo o sulla domanda."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:float .
+
+ex:esImportada a owl:DatatypeProperty ;
+  rdfs:label "es importada"@es ; rdfs:label "is imported"@en ; rdfs:label "é importada"@pt ; rdfs:label "est importée"@fr ; rdfs:label "è importata"@it ;
+  rdfs:comment "Indica si la bebida es importada (true/false)."@es ; rdfs:comment "Indicates whether the beverage is imported (true/false)."@en ; rdfs:comment "Indica se a bebida é importada (true/false)."@pt ; rdfs:comment "Indique si la boisson est importée (true/false)."@fr ; rdfs:comment "Indica se la bevanda è importata (true/false)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:boolean ; a owl:FunctionalProperty .
+
+ex:esPremium a owl:DatatypeProperty ;
+  rdfs:label "es premium"@es ; rdfs:label "is premium"@en ; rdfs:label "é premium"@pt ; rdfs:label "est premium"@fr ; rdfs:label "è premium"@it ;
+  rdfs:comment "Indica si la bebida se categoriza como premium (true/false)."@es ; rdfs:comment "Indicates whether the beverage is categorized as premium (true/false)."@en ; rdfs:comment "Indica se a bebida é categorizada como premium (true/false)."@pt ; rdfs:comment "Indique si la boisson est catégorisée comme premium (true/false)."@fr ; rdfs:comment "Indica se la bevanda è classificata come premium (true/false)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:boolean ; a owl:FunctionalProperty .
+
+ex:temperaturaServicio a owl:DatatypeProperty ;
+  rdfs:label "temperatura de servicio"@es ; rdfs:label "serving temperature"@en ; rdfs:label "temperatura de serviço"@pt ; rdfs:label "température de service"@fr ; rdfs:label "temperatura di servizio"@it ;
+  rdfs:comment "Temperatura recomendada para servir la bebida (texto libre)."@es ; rdfs:comment "Recommended serving temperature for the beverage (free text)."@en ; rdfs:comment "Temperatura recomendada para servir a bebida (texto livre)."@pt ; rdfs:comment "Température recommandée pour servir la boisson (texte libre)."@fr ; rdfs:comment "Temperatura raccomandata per servire la bevanda (testo libero)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:string .
+
+ex:tieneNombre a owl:DatatypeProperty ;
+  rdfs:label "tiene nombre"@es ; rdfs:label "has name"@en ; rdfs:label "tem nome"@pt ; rdfs:label "a pour nom"@fr ; rdfs:label "ha nome"@it ;
+  rdfs:comment "Nombre genérico o etiqueta breve de la entidad."@es ; rdfs:comment "Generic name or short label of the entity."@en ; rdfs:comment "Nome genérico ou etiqueta breve da entidade."@pt ; rdfs:comment "Nom générique ou étiquette courte de l'entité."@fr ; rdfs:comment "Nome generico o etichetta breve dell'entità."@it ;
+  rdfs:domain owl:Thing ; rdfs:range xsd:string ; a owl:FunctionalProperty .
+
+ex:fechaEvento a owl:DatatypeProperty ;
+  rdfs:label "fecha de evento"@es ; rdfs:label "event date"@en ; rdfs:label "data do evento"@pt ; rdfs:label "date de l'événement"@fr ; rdfs:label "data dell'evento"@it ;
+  rdfs:comment "Fecha o periodo en que ocurre el evento (formato libre)."@es ; rdfs:comment "Date or period when the event occurs (free format)."@en ; rdfs:comment "Data ou período em que o evento ocorre (formato livre)."@pt ; rdfs:comment "Date ou période à laquelle l'événement a lieu (format libre)."@fr ; rdfs:comment "Data o periodo in cui si svolge l'evento (formato libero)."@it ;
+  rdfs:domain ex:Evento ; rdfs:range xsd:string .
+
+ex:cantidadAsistentes a owl:DatatypeProperty ;
+  rdfs:label "cantidad de asistentes"@es ; rdfs:label "number of attendees"@en ; rdfs:label "número de participantes"@pt ; rdfs:label "nombre de participants"@fr ; rdfs:label "numero di partecipanti"@it ;
+  rdfs:comment "Número aproximado de asistentes al evento."@es ; rdfs:comment "Approximate number of attendees to the event."@en ; rdfs:comment "Número aproximado de participantes no evento."@pt ; rdfs:comment "Nombre approximatif de participants à l'événement."@fr ; rdfs:comment "Numero approssimativo di partecipanti all'evento."@it ;
+  rdfs:domain ex:Evento ; rdfs:range xsd:integer .
+
+ex:presupuestoMarketing a owl:DatatypeProperty ;
+  rdfs:label "presupuesto de marketing"@es ; rdfs:label "marketing budget"@en ; rdfs:label "orçamento de marketing"@pt ; rdfs:label "budget marketing"@fr ; rdfs:label "budget di marketing"@it ;
+  rdfs:comment "Presupuesto destinado a marketing para la festividad (moneda local)."@es ; rdfs:comment "Budget allocated to marketing for the festivity (local currency)."@en ; rdfs:comment "Orçamento destinado ao marketing para a festividade (moeda local)."@pt ; rdfs:comment "Budget alloué au marketing pour la festivité (monnaie locale)."@fr ; rdfs:comment "Budget destinato al marketing per la festività (valuta locale)."@it ;
+  rdfs:domain ex:Festividad ; rdfs:range xsd:float .
+
+ex:densidadPuntosVenta a owl:DatatypeProperty ;
+  rdfs:label "densidad de puntos de venta"@es ; rdfs:label "density of sales points"@en ; rdfs:label "densidade de pontos de venda"@pt ; rdfs:label "densité de points de vente"@fr ; rdfs:label "densità dei punti vendita"@it ;
+  rdfs:comment "Número relativo de puntos de venta por área (indicativo)."@es ; rdfs:comment "Relative number of sales points per area (indicative)."@en ; rdfs:comment "Número relativo de pontos de venda por área (indicativo)."@pt ; rdfs:comment "Nombre relatif de points de vente par zone (indicatif)."@fr ; rdfs:comment "Numero relativo di punti vendita per area (indicativo)."@it ;
+  rdfs:domain ex:Departamento ; rdfs:range xsd:float .
+
+ex:mesRecomendado a owl:DatatypeProperty ;
+  rdfs:label "mes recomendado"@es ; rdfs:label "recommended month"@en ; rdfs:label "mês recomendado"@pt ; rdfs:label "mois recommandé"@fr ; rdfs:label "mese raccomandato"@it ;
+  rdfs:comment "Mes recomendado para campañas o inventario en el departamento."@es ; rdfs:comment "Recommended month for campaigns or inventory in the department."@en ; rdfs:comment "Mês recomendado para campanhas ou inventário no departamento."@pt ; rdfs:comment "Mois recommandé pour les campagnes ou les stocks dans le département."@fr ; rdfs:comment "Mese raccomandato per campagne o inventario nel dipartimento."@it ;
+  rdfs:domain ex:Departamento ; rdfs:range xsd:string .
+
+ex:temperaturaPromedio a owl:DatatypeProperty ;
+  rdfs:label "temperatura promedio"@es ; rdfs:label "average temperature"@en ; rdfs:label "temperatura média"@pt ; rdfs:label "température moyenne"@fr ; rdfs:label "temperatura media"@it ;
+  rdfs:comment "Temperatura media registrada en la región (°C)."@es ; rdfs:comment "Average temperature recorded in the region (°C)."@en ; rdfs:comment "Temperatura média registada na região (°C)."@pt ; rdfs:comment "Température moyenne enregistrée dans la région (°C)."@fr ; rdfs:comment "Temperatura media registrata nella regione (°C)."@it ;
+  rdfs:domain ex:Clima ; rdfs:range xsd:float .
+
+ex:nombreDemografico a owl:DatatypeProperty ;
+  rdfs:label "nombre demográfico"@es ; rdfs:label "demographic name"@en ; rdfs:label "nome demográfico"@pt ; rdfs:label "nom démographique"@fr ; rdfs:label "nome demografico"@it ;
+  rdfs:comment "Etiqueta del segmento demográfico (ej. '18-24 años')."@es ; rdfs:comment "Label of the demographic segment (e.g., '18-24 years')."@en ; rdfs:comment "Etiqueta do segmento demográfico (ex.: '18-24 anos')."@pt ; rdfs:comment "Étiquette du segment démographique (ex.: '18-24 ans')."@fr ; rdfs:comment "Etichetta del segmento demografico (es.: '18-24 anni')."@it ;
+  rdfs:domain ex:RangoDeEdad ; rdfs:range xsd:string .
+
+ex:nivelDemografico a owl:DatatypeProperty ;
+  rdfs:label "nivel demográfico"@es ; rdfs:label "demographic level"@en ; rdfs:label "nível demográfico"@pt ; rdfs:label "niveau démographique"@fr ; rdfs:label "livello demografico"@it ;
+  rdfs:comment "Descripción del nivel socioeconómico (ej. 'Medio')."@es ; rdfs:comment "Description of socioeconomic level (e.g., 'Middle')."@en ; rdfs:comment "Descrição do nível socioeconômico (ex.: 'Médio')."@pt ; rdfs:comment "Description du niveau socio-économique (ex.: 'Moyen')."@fr ; rdfs:comment "Descrizione del livello socioeconomico (es.: 'Medio')."@it ;
+  rdfs:domain ex:NivelSocioEconomico ; rdfs:range xsd:string .
+
+ex:valorDulzura a owl:DatatypeProperty ;
+  rdfs:label "valor de dulzura"@es ; rdfs:label "sweetness value"@en ; rdfs:label "valor de doçura"@pt ; rdfs:label "valeur de douceur"@fr ; rdfs:label "valore di dolcezza"@it ;
+  rdfs:comment "Valor cualitativo de dulzura (ej. 'Dulce', 'Medio')."@es ; rdfs:comment "Qualitative sweetness value (e.g., 'Sweet', 'Medium')."@en ; rdfs:comment "Valor qualitativo de doçura (ex.: 'Doce', 'Médio')."@pt ; rdfs:comment "Valeur qualitative de douceur (ex.: 'Doux', 'Moyen')."@fr ; rdfs:comment "Valore qualitativo di dolcezza (es.: 'Dolce', 'Medio')."@it ;
+  rdfs:domain ex:PropiedadOrganoleptica ; rdfs:range xsd:string .
+
+ex:valorAmargor a owl:DatatypeProperty ;
+  rdfs:label "valor de amargor"@es ; rdfs:label "bitterness value"@en ; rdfs:label "valor de amargor"@pt ; rdfs:label "valeur d'amertume"@fr ; rdfs:label "valore di amarezza"@it ;
+  rdfs:comment "Valor cualitativo de amargor (ej. 'Alto', 'Bajo')."@es ; rdfs:comment "Qualitative bitterness value (e.g., 'High', 'Low')."@en ; rdfs:comment "Valor qualitativo de amargor (ex.: 'Alto', 'Baixo')."@pt ; rdfs:comment "Valeur qualitative d'amertume (ex.: 'Élevée', 'Faible')."@fr ; rdfs:comment "Valore qualitativo di amarezza (es.: 'Alto', 'Basso')."@it ;
+  rdfs:domain ex:PropiedadOrganoleptica ; rdfs:range xsd:string .
+
+ex:valorCuerpo a owl:DatatypeProperty ;
+  rdfs:label "valor de cuerpo"@es ; rdfs:label "body value"@en ; rdfs:label "valor de corpo"@pt ; rdfs:label "valeur de corps"@fr ; rdfs:label "valore di corpo"@it ;
+  rdfs:comment "Valor cualitativo del cuerpo de la bebida."@es ; rdfs:comment "Qualitative body value of the beverage."@en ; rdfs:comment "Valor qualitativo do corpo da bebida."@pt ; rdfs:comment "Valeur qualitative du corps de la boisson."@fr ; rdfs:comment "Valore qualitativo del corpo della bevanda."@it ;
+  rdfs:domain ex:PropiedadOrganoleptica ; rdfs:range xsd:string .
+
+ex:tieneVolumenVentas a owl:DatatypeProperty ;
+  rdfs:label "tiene volumen ventas"@es ; rdfs:label "has sales volume"@en ; rdfs:label "tem volume de vendas"@pt ; rdfs:label "a un volume de ventes"@fr ; rdfs:label "ha volume di vendite"@it ;
+  rdfs:comment "Volumen de ventas estimado/registrado para el periodo y canal."@es ; rdfs:comment "Estimated/recorded sales volume for the period and channel."@en ; rdfs:comment "Volume de vendas estimado/registrado para o período e canal."@pt ; rdfs:comment "Volume de ventes estimé/enregistré pour la période et le canal."@fr ; rdfs:comment "Volume di vendite stimato/registrato per il periodo e il canale."@it ;
+  rdfs:domain ex:Ventas ; rdfs:range xsd:integer .
+
+ex:tipoPromocion a owl:DatatypeProperty ;
+  rdfs:label "tipo de promoción"@es ; rdfs:label "promotion type"@en ; rdfs:label "tipo de promoção"@pt ; rdfs:label "type de promotion"@fr ; rdfs:label "tipo di promozione"@it ;
+  rdfs:comment "Tipo de promoción aplicada (ej. '2x1', 'ninguna')."@es ; rdfs:comment "Type of promotion applied (e.g., '2x1', 'none')."@en ; rdfs:comment "Tipo de promoção aplicada (ex.: '2x1', 'nenhuma')."@pt ; rdfs:comment "Type de promotion appliquée (ex.: '2x1', 'aucune')."@fr ; rdfs:comment "Tipo di promozione applicata (es.: '2x1', 'nessuna')."@it ;
+  rdfs:domain ex:Ventas ; rdfs:range xsd:string .
+
+ex:periodo a owl:DatatypeProperty ;
+  rdfs:label "periodo"@es ; rdfs:label "period"@en ; rdfs:label "período"@pt ; rdfs:label "période"@fr ; rdfs:label "periodo"@it ;
+  rdfs:comment "Periodo relativo a la observación (Antes, Durante, Post, mes, etc.)."@es ; rdfs:comment "Period related to the observation (Before, During, After, month, etc.)."@en ; rdfs:comment "Período relativo à observação (Antes, Durante, Pós, mês, etc.)."@pt ; rdfs:comment "Période relative à l'observation (Avant, Pendant, Après, mois, etc.)."@fr ; rdfs:comment "Periodo relativo all'osservazione (Prima, Durante, Dopo, mese, ecc.)."@it ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( ex:Ventas ex:DemandaPromedio ) ] ;
+  rdfs:range xsd:string .
+
+ex:tieneDemanda a owl:DatatypeProperty ;
+  rdfs:label "tiene demanda"@es ; rdfs:label "has demand"@en ; rdfs:label "tem demanda"@pt ; rdfs:label "a une demande"@fr ; rdfs:label "ha domanda"@it ;
+  rdfs:comment "Cantidad estimada de demanda para el periodo indicado."@es ; rdfs:comment "Estimated demand quantity for the indicated period."@en ; rdfs:comment "Quantidade estimada de demanda para o período indicado."@pt ; rdfs:comment "Quantité de demande estimée pour la période indiquée."@fr ; rdfs:comment "Quantità di domanda stimata per il periodo indicato."@it ;
+  rdfs:domain ex:DemandaPromedio ; rdfs:range xsd:integer .
+
+# Data properties añadidas
+ex:descripcion a owl:DatatypeProperty ;
+  rdfs:label "descripción"@es ; rdfs:label "description"@en ; rdfs:label "descrição"@pt ; rdfs:label "description"@fr ; rdfs:label "descrizione"@it ;
+  rdfs:comment "Texto descriptivo que proporciona información adicional sobre una entidad."@es ; rdfs:comment "Descriptive text providing additional information about an entity."@en ; rdfs:comment "Texto descritivo que fornece informações adicionais sobre uma entidade."@pt ; rdfs:comment "Texte descriptif fournissant des informations supplémentaires sur une entité."@fr ; rdfs:comment "Testo descrittivo che fornisce informazioni aggiuntive su un'entità."@it ;
+  rdfs:domain owl:Thing ; rdfs:range xsd:string .
+
+ex:esMercadoFormal a owl:DatatypeProperty ;
+  rdfs:label "es mercado formal"@es ; rdfs:label "is formal market"@en ; rdfs:label "é mercado formal"@pt ; rdfs:label "est marché formel"@fr ; rdfs:label "è mercato formale"@it ;
+  rdfs:comment "Indica si una bebida se comercializa en el mercado formal (tiendas autorizadas)."@es ; rdfs:comment "Indicates if a beverage is sold in the formal market (authorized stores)."@en ; rdfs:comment "Indica se uma bebida é comercializada no mercado formal (lojas autorizadas)."@pt ; rdfs:comment "Indique si une boisson est vendue sur le marché formel (magasins autorisés)."@fr ; rdfs:comment "Indica se una bevanda viene commercializzata nel mercato formale (negozi autorizzati)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:boolean .
+
+ex:esArtesanal a owl:DatatypeProperty ;
+  rdfs:label "es artesanal"@es ; rdfs:label "is artisanal"@en ; rdfs:label "é artesanal"@pt ; rdfs:label "est artisanal"@fr ; rdfs:label "è artigianale"@it ;
+  rdfs:comment "Indica si una bebida fue elaborada de forma artesanal (producción pequeña, métodos tradicionales)."@es ; rdfs:comment "Indicates if a beverage is produced artisanally (small-scale production, traditional methods)."@en ; rdfs:comment "Indica se uma bebida foi elaborada de forma artesanal (produção em pequena escala, métodos tradicionais)."@pt ; rdfs:comment "Indique si une boisson a été élaborée de façon artisanale (production à petite échelle, méthodes traditionnelles)."@fr ; rdfs:comment "Indica se una bevanda è stata prodotta artigianalmente (produzione su piccola scala, metodi tradizionali)."@it ;
+  rdfs:domain ex:BebidaAlcoholica ; rdfs:range xsd:boolean .
+
+ex:indiceEfectividad a owl:DatatypeProperty ;
+  rdfs:label "índice de efectividad"@es ; rdfs:label "effectiveness index"@en ; rdfs:label "índice de efetividade"@pt ; rdfs:label "indice d'efficacité"@fr ; rdfs:label "indice di efficacia"@it ;
+  rdfs:comment "Valor numérico que mide la efectividad de una campaña publicitaria (0 a 1)."@es ; rdfs:comment "Numerical value measuring the effectiveness of an advertising campaign (0 to 1)."@en ; rdfs:comment "Valor numérico que mede a efetividade de uma campanha publicitária (0 a 1)."@pt ; rdfs:comment "Valeur numérique mesurant l'efficacité d'une campagne publicitaire (0 à 1)."@fr ; rdfs:comment "Valore numerico che misura l'efficacia di una campagna pubblicitaria (da 0 a 1)."@it ;
+  rdfs:domain ex:CampañaPublicitaria ; rdfs:range xsd:float .
+
+############################
+# Instancias mínimas (DATA)#
+############################
+
+# Departamentos
+ex:LaPaz a ex:Departamento ; 
+  rdfs:label "La Paz"@es ; rdfs:label "La Paz"@en ; rdfs:label "La Paz"@pt ; rdfs:label "La Paz"@fr ; rdfs:label "La Paz"@it ;
+  ex:tieneNombre "La Paz" ; ex:densidadPuntosVenta "85.5"^^xsd:float .
+ex:Cochabamba a ex:Departamento ; 
+  rdfs:label "Cochabamba"@es ; rdfs:label "Cochabamba"@en ; rdfs:label "Cochabamba"@pt ; rdfs:label "Cochabamba"@fr ; rdfs:label "Cochabamba"@it ;
+  ex:tieneNombre "Cochabamba" .
+ex:SantaCruz a ex:Departamento ; 
+  rdfs:label "Santa Cruz"@es ; rdfs:label "Santa Cruz"@en ; rdfs:label "Santa Cruz"@pt ; rdfs:label "Santa Cruz"@fr ; rdfs:label "Santa Cruz"@it ;
+  ex:tieneNombre "Santa Cruz" .
+ex:Oruro a ex:Departamento ; 
+  rdfs:label "Oruro"@es ; rdfs:label "Oruro"@en ; rdfs:label "Oruro"@pt ; rdfs:label "Oruro"@fr ; rdfs:label "Oruro"@it ;
+  ex:tieneNombre "Oruro" .
+ex:Potosi a ex:Departamento ; 
+  rdfs:label "Potosí"@es ; rdfs:label "Potosi"@en ; rdfs:label "Potosí"@pt ; rdfs:label "Potosí"@fr ; rdfs:label "Potosí"@it ;
+  ex:tieneNombre "Potosí" .
+ex:Chuquisaca a ex:Departamento ; 
+  rdfs:label "Chuquisaca"@es ; rdfs:label "Chuquisaca"@en ; rdfs:label "Chuquisaca"@pt ; rdfs:label "Chuquisaca"@fr ; rdfs:label "Chuquisaca"@it ;
+  ex:tieneNombre "Chuquisaca" .
+ex:Tarija a ex:Departamento ; 
+  rdfs:label "Tarija"@es ; rdfs:label "Tarija"@en ; rdfs:label "Tarija"@pt ; rdfs:label "Tarija"@fr ; rdfs:label "Tarija"@it ;
+  ex:tieneNombre "Tarija" .
+ex:Beni a ex:Departamento ; 
+  rdfs:label "Beni"@es ; rdfs:label "Beni"@en ; rdfs:label "Beni"@pt ; rdfs:label "Beni"@fr ; rdfs:label "Beni"@it ;
+  ex:tieneNombre "Beni" .
+ex:Pando a ex:Departamento ; 
+  rdfs:label "Pando"@es ; rdfs:label "Pando"@en ; rdfs:label "Pando"@pt ; rdfs:label "Pando"@fr ; rdfs:label "Pando"@it ;
+  ex:tieneNombre "Pando" ; ex:mesRecomendado "Noviembre" .
+ex:Beni ex:densidadPuntosVenta "5.0"^^xsd:float .
+
+# Regiones
+ex:Altiplano a ex:RegionGeografica ; 
+  rdfs:label "Altiplano"@es ; rdfs:label "Altiplano"@en ; rdfs:label "Altiplano"@pt ; rdfs:label "Altiplano"@fr ; rdfs:label "Altiplano"@it ;
+  ex:tieneNombre "Altiplano" .
+ex:Valle a ex:RegionGeografica ; 
+  rdfs:label "Valle"@es ; rdfs:label "Valley"@en ; rdfs:label "Vale"@pt ; rdfs:label "Vallée"@fr ; rdfs:label "Valle"@it ;
+  ex:tieneNombre "Valle" .
+ex:Oriente a ex:RegionGeografica ; 
+  rdfs:label "Oriente"@es ; rdfs:label "Eastern"@en ; rdfs:label "Oriente"@pt ; rdfs:label "Orient"@fr ; rdfs:label "Oriente"@it ;
+  ex:tieneNombre "Oriente" .
+ex:Chaco a ex:RegionGeografica ; 
+  rdfs:label "Chaco"@es ; rdfs:label "Chaco"@en ; rdfs:label "Chaco"@pt ; rdfs:label "Chaco"@fr ; rdfs:label "Chaco"@it ;
+  ex:tieneNombre "Chaco" .
+
+# Vincular departamentos a regiones
+ex:LaPaz ex:perteneceARegion ex:Altiplano .
+ex:Oruro ex:perteneceARegion ex:Altiplano .
+ex:Potosi ex:perteneceARegion ex:Altiplano .
+ex:Chuquisaca ex:perteneceARegion ex:Chaco .
+ex:Tarija ex:perteneceARegion ex:Valle .
+ex:Beni ex:perteneceARegion ex:Oriente .
+ex:Pando ex:perteneceARegion ex:Oriente .
+ex:Cochabamba ex:perteneceARegion ex:Valle .
+ex:SantaCruz ex:perteneceARegion ex:Oriente .
+
+# Demografia
+ex:R18_24_GenZ a ex:RangoDeEdad ;
+  rdfs:label "18-24 años (Generación Z)"@es ; rdfs:label "18-24 years (Generation Z)"@en ; rdfs:label "18-24 anos (Geração Z)"@pt ; rdfs:label "18-24 ans (Génération Z)"@fr ; rdfs:label "18-24 anni (Generazione Z)"@it ;
+  ex:nombreDemografico "18-24 años" .
+
+ex:NSE_Medio a ex:NivelSocioEconomico ;
+  rdfs:label "Nivel Socioeconómico Medio"@es ; rdfs:label "Middle Socioeconomic Level"@en ; rdfs:label "Nível Socioeconômico Médio"@pt ; rdfs:label "Niveau Socio-économique Moyen"@fr ; rdfs:label "Livello Socioeconomico Medio"@it ;
+  ex:nivelDemografico "Medio" .
+
+# Climas
+ex:ClimaOruro a ex:Clima ; 
+  rdfs:label "Clima de Oruro"@es ; rdfs:label "Oruro Climate"@en ; rdfs:label "Clima de Oruro"@pt ; rdfs:label "Climat d'Oruro"@fr ; rdfs:label "Clima di Oruro"@it ;
+  ex:temperaturaPromedio "10.0"^^xsd:float .
+ex:Oruro ex:tieneClima ex:ClimaOruro .
+ex:ClimaOruro ex:climaCaracterizaA ex:Oruro .
+
+# Eventos
+ex:CarnavalOruro a ex:FestividadDepartamental ;
+  rdfs:label "Carnaval de Oruro"@es ; rdfs:label "Carnival of Oruro"@en ; rdfs:label "Carnaval de Oruro"@pt ; rdfs:label "Carnaval d'Oruro"@fr ; rdfs:label "Carnevale di Oruro"@it ;
+  ex:tieneNombre "Carnaval de Oruro" ; ex:fechaEvento "Febrero" ;
+  ex:cantidadAsistentes "400000"^^xsd:integer ; ex:presupuestoMarketing "50000.0"^^xsd:float ;
+  ex:ocurreEn ex:Oruro .
+
+ex:AniversarioPatrio a ex:FestividadNacional ;
+  rdfs:label "Aniversario Patrio"@es ; rdfs:label "National Anniversary"@en ; rdfs:label "Aniversário Pátrio"@pt ; rdfs:label "Anniversaire patriotique"@fr ; rdfs:label "Anniversario patriottico"@it ;
+  ex:tieneNombre "Aniversario Patrio" ; ex:fechaEvento "06-08" .
+
+ex:FiestaSanRoque a ex:FestividadPatronal ;
+  rdfs:label "Fiesta de San Roque"@es ; rdfs:label "Saint Roque's Feast"@en ; rdfs:label "Festa de São Roque"@pt ; rdfs:label "Fête de Saint-Roque"@fr ; rdfs:label "Festa di San Rocco"@it ;
+  ex:tieneNombre "Fiesta de San Roque" ; ex:fechaEvento "Agosto" ; ex:ocurreEn ex:Tarija .
+
+ex:SemanaSanta a ex:Festividad ;
+  rdfs:label "Semana Santa"@es ; rdfs:label "Holy Week"@en ; rdfs:label "Semana Santa"@pt ; rdfs:label "Semaine Sainte"@fr ; rdfs:label "Settimana Santa"@it ;
+  ex:tieneNombre "Semana Santa" ; ex:fechaEvento "Marzo-Abril" .
+
+ex:DiaDeLaMadre a ex:FestividadNacional ;
+  rdfs:label "Día de la Madre"@es ; rdfs:label "Mother's Day"@en ; rdfs:label "Dia das Mães"@pt ; rdfs:label "Fête des Mères"@fr ; rdfs:label "Festa della Mamma"@it ;
+  ex:tieneNombre "Día de la Madre" ; ex:fechaEvento "27-05" .
+
+ex:PartidoSeleccion a ex:EventoDeportivo ;
+  rdfs:label "Partido de la Selección Nacional"@es ; rdfs:label "National Team Match"@en ; rdfs:label "Partida da Seleção Nacional"@pt ; rdfs:label "Match de la Sélection Nationale"@fr ; rdfs:label "Partita della Nazionale"@it ;
+  ex:tieneNombre "Partido Selección Nacional" .
+
+ex:Elecciones2025 a ex:AcontecimientoExterno ;
+  rdfs:label "Elecciones Presidenciales 2025"@es ; rdfs:label "Presidential Elections 2025"@en ; rdfs:label "Eleições Presidenciais 2025"@pt ; rdfs:label "Élections Présidentielles 2025"@fr ; rdfs:label "Elezioni Presidenziali 2025"@it ;
+  ex:tieneNombre "Elecciones Presidenciales 2025" ; ex:fechaEvento "2025" .
+
+ex:FestivalLaPaz2025 a ex:Evento ;
+  rdfs:label "Festival Internacional de La Paz"@es ; rdfs:label "International Festival of La Paz"@en ; rdfs:label "Festival Internacional de La Paz"@pt ; rdfs:label "Festival International de La Paz"@fr ; rdfs:label "Festival Internazionale di La Paz"@it ;
+  ex:tieneNombre "Festival Internacional de La Paz" ;
+  ex:fechaEvento "Diciembre" ;
+  ex:cantidadAsistentes "150000"^^xsd:integer ;
+  ex:ocurreEn ex:LaPaz .
+
+ex:FiestaPatronalCochabamba a ex:FestividadPatronal ;
+  rdfs:label "Fiesta Patronal de Cochabamba"@es ; rdfs:label "Cochabamba Patronal Feast"@en ; rdfs:label "Festa Patronal de Cochabamba"@pt ; rdfs:label "Fête Patronale de Cochabamba"@fr ; rdfs:label "Festa Patronale di Cochabamba"@it ;
+  ex:tieneNombre "Fiesta Patronal Cochabamba" ;
+  ex:fechaEvento "Septiembre" ;
+  ex:ocurreEn ex:Cochabamba .
+
+ex:ConciertoMasivoLaPaz a ex:EventoMasivo ;
+  rdfs:label "Concierto Masivo de La Paz"@es ; rdfs:label "Massive Concert of La Paz"@en ; rdfs:label "Concerto Massivo de La Paz"@pt ; rdfs:label "Concert Massif de La Paz"@fr ; rdfs:label "Concerto Massivo di La Paz"@it ;
+  ex:tieneNombre "Concierto Masivo La Paz" ;
+  ex:fechaEvento "Octubre" ;
+  ex:cantidadAsistentes "120000"^^xsd:integer ;
+  ex:ocurreEn ex:LaPaz .
+
+# Canales de venta y distribuidor
+ex:Fidalga a ex:Supermercado ; 
+  rdfs:label "Fidalga"@es ; rdfs:label "Fidalga"@en ; rdfs:label "Fidalga"@pt ; rdfs:label "Fidalga"@fr ; rdfs:label "Fidalga"@it ;
+  ex:tieneNombre "Fidalga" .
+ex:CanalDiscoteca a ex:Discoteca ; 
+  rdfs:label "Discoteca"@es ; rdfs:label "Nightclub"@en ; rdfs:label "Discoteca"@pt ; rdfs:label "Discothèque"@fr ; rdfs:label "Discoteca"@it ;
+  ex:tieneNombre "Discoteca" .
+ex:TaDa a ex:Distribuidor ; 
+  rdfs:label "Ta-Da"@es ; rdfs:label "Ta-Da"@en ; rdfs:label "Ta-Da"@pt ; rdfs:label "Ta-Da"@fr ; rdfs:label "Ta-Da"@it ;
+  ex:tieneNombre "Ta-Da" ; ex:esDominanteEn ex:LaPaz, ex:Oruro, ex:Potosi .
+
+# Música y celebridad
+ex:Folklore a ex:EstiloMusica ; 
+  rdfs:label "Folklore Boliviano"@es ; rdfs:label "Bolivian Folklore"@en ; rdfs:label "Folclore Boliviano"@pt ; rdfs:label "Folklore Bolivien"@fr ; rdfs:label "Folclore Boliviano"@it ;
+  ex:tieneNombre "Folklore Boliviano" .
+ex:EDM a ex:EstiloMusica ; 
+  rdfs:label "Electrónica EDM"@es ; rdfs:label "Electronic EDM"@en ; rdfs:label "Eletrônica EDM"@pt ; rdfs:label "Électronique EDM"@fr ; rdfs:label "Elettronica EDM"@it ;
+  ex:tieneNombre "Electrónica EDM" .
+ex:ArtistaNacional1 a ex:CelebridadLocal ; 
+  rdfs:label "Artista Nacional 1"@es ; rdfs:label "National Artist 1"@en ; rdfs:label "Artista Nacional 1"@pt ; rdfs:label "Artiste National 1"@fr ; rdfs:label "Artista Nazionale 1"@it ;
+  ex:tieneNombre "Artista Nacional 1" .
+
+# Envases, vasos, ingredientes
+ex:Lata a ex:EnvaseLata ; 
+  rdfs:label "Lata"@es ; rdfs:label "Can"@en ; rdfs:label "Lata"@pt ; rdfs:label "Canette"@fr ; rdfs:label "Lattina"@it ;
+  ex:tieneNombre "Lata" .
+ex:BotellaVidrio a ex:EnvaseVidrio ; 
+  rdfs:label "Botella de Vidrio"@es ; rdfs:label "Glass Bottle"@en ; rdfs:label "Garrafa de Vidro"@pt ; rdfs:label "Bouteille en Verre"@fr ; rdfs:label "Bottiglia di Vetro"@it ;
+  ex:tieneNombre "Botella de Vidrio" .
+ex:BotellaPET a ex:EnvasePET ; 
+  rdfs:label "Botella PET"@es ; rdfs:label "PET Bottle"@en ; rdfs:label "Garrafa PET"@pt ; rdfs:label "Bouteille PET"@fr ; rdfs:label "Bottiglia PET"@it ;
+  ex:tieneNombre "Botella PET" .
+ex:VasoTulipan a ex:TipoDeVaso ; 
+  rdfs:label "Vaso Tulipán"@es ; rdfs:label "Tulip Glass"@en ; rdfs:label "Copo Tulipa"@pt ; rdfs:label "Verre Tulipe"@fr ; rdfs:label "Bicchiere Tulipano"@it ;
+  ex:tieneNombre "Vaso Tulipán" .
+
+ex:Malta a ex:IngredienteBase ; 
+  rdfs:label "Malta"@es ; rdfs:label "Malt"@en ; rdfs:label "Malta"@pt ; rdfs:label "Malt"@fr ; rdfs:label "Malto"@it ;
+  ex:tieneNombre "Malta" .
+ex:CanaDeAzucar a ex:IngredienteBase ; 
+  rdfs:label "Caña de Azúcar"@es ; rdfs:label "Sugar Cane"@en ; rdfs:label "Cana de Açúcar"@pt ; rdfs:label "Canne à Sucre"@fr ; rdfs:label "Canna da Zucchero"@it ;
+  ex:tieneNombre "Caña de Azúcar" .
+ex:Agave a ex:IngredienteBase ; 
+  rdfs:label "Agave"@es ; rdfs:label "Agave"@en ; rdfs:label "Agave"@pt ; rdfs:label "Agave"@fr ; rdfs:label "Agave"@it ;
+  ex:tieneNombre "Agave" .
+ex:UvaMuscatel a ex:IngredienteBase ; 
+  rdfs:label "Uva Moscatel de Alejandría"@es ; rdfs:label "Muscat Grape from Alexandria"@en ; rdfs:label "Uva Moscatel de Alexandria"@pt ; rdfs:label "Raisin Muscat d'Alexandria"@fr ; rdfs:label "Uva Moscato di Alessandria"@it ;
+  ex:tieneNombre "Uva Muscatel de Alejandría" .
+ex:Agua a ex:IngredienteBase ; 
+  rdfs:label "Agua"@es ; rdfs:label "Water"@en ; rdfs:label "Água"@pt ; rdfs:label "Eau"@fr ; rdfs:label "Acqua"@it ;
+  ex:tieneNombre "Agua" .
+
+ex:Lata ex:esPreferidoEn ex:ConciertoMasivoLaPaz .
+
+# Propiedades organolépticas y estaciones
+ex:DulzuraBeni a ex:PropiedadOrganoleptica ; 
+  rdfs:label "Dulzura de Beni"@es ; rdfs:label "Beni Sweetness"@en ; rdfs:label "Doçura de Beni"@pt ; rdfs:label "Douceur de Beni"@fr ; rdfs:label "Dolcezza di Beni"@it ;
+  ex:valorDulzura "Dulce" .
+ 
+ex:EstInvierno a ex:Invierno ; 
+  rdfs:label "Invierno"@es ; rdfs:label "Winter"@en ; rdfs:label "Inverno"@pt ; rdfs:label "Hiver"@fr ; rdfs:label "Inverno"@it ;
+  ex:tieneNombre "Invierno" .
+ex:EstVerano a ex:Verano ; 
+  rdfs:label "Verano"@es ; rdfs:label "Summer"@en ; rdfs:label "Verão"@pt ; rdfs:label "Été"@fr ; rdfs:label "Estate"@it ;
+  ex:tieneNombre "Verano" .
+
+# Bebidas alcohólicas
+ex:Paceña a ex:CervezaLager ;
+  rdfs:label "Cerveza Paceña"@es ; rdfs:label "Paceña Beer"@en ; rdfs:label "Cerveja Paceña"@pt ; rdfs:label "Bière Paceña"@fr ; rdfs:label "Birra Paceña"@it ;
+  ex:tieneABV "4.8"^^xsd:float ;
+  ex:nombreMarca "Paceña" ;
+  ex:nombreProducto "Cerveza Paceña" ;
+  ex:esPremium "false"^^xsd:boolean ;
+  ex:esImportada "false"^^xsd:boolean ;
+  ex:esMercadoFormal "true"^^xsd:boolean ;
+  ex:esArtesanal "false"^^xsd:boolean ;
+  ex:seConsumeEn ex:LaPaz, ex:Cochabamba, ex:SantaCruz ;
+  ex:requiereEnvase ex:Lata ;
+  ex:usaIngrediente ex:Malta ;
+  ex:seAsociaConMusica ex:Folklore .
+
+ex:CasaReal a ex:Singani ;
+  rdfs:label "Casa Real Singani"@es ; rdfs:label "Casa Real Singani"@en ; rdfs:label "Casa Real Singani"@pt ; rdfs:label "Casa Real Singani"@fr ; rdfs:label "Casa Real Singani"@it ;
+  ex:tieneABV "40.0"^^xsd:float ;
+  ex:nombreMarca "Casa Real" ;
+  ex:esImportada "false"^^xsd:boolean ;
+  ex:seRecomiendaVaso ex:VasoTulipan ;
+  ex:seConsumeEn ex:Tarija ;
+  ex:usaIngrediente ex:UvaMuscatel .
+
+ex:RonSanRoman a ex:Ron ;
+  rdfs:label "Ron San Román"@es ; rdfs:label "San Roman Rum"@en ; rdfs:label "Rum San Román"@pt ; rdfs:label "Rhum San Román"@fr ; rdfs:label "Rum San Román"@it ;
+  ex:tieneABV "38.0"^^xsd:float ;
+  ex:esImportada "false"^^xsd:boolean ;
+  ex:seConsumeEn ex:Pando ;
+  ex:seVendeEn ex:CanalDiscoteca ;
+  ex:usaIngrediente ex:CanaDeAzucar .
+
+ex:VodkaBoliviano a ex:Vodka ;
+  rdfs:label "Vodka Boliviano"@es ; rdfs:label "Bolivian Vodka"@en ; rdfs:label "Vodka Boliviano"@pt ; rdfs:label "Vodka Bolivien"@fr ; rdfs:label "Vodka Boliviano"@it ;
+  ex:esImportada "false"^^xsd:boolean ;
+  ex:indicePreferencia "0.65"^^xsd:float ;
+  ex:tieneABV "37.5"^^xsd:float ;
+  ex:seConsumeEn ex:Chuquisaca .
+
+ex:GinebraImportada a ex:Ginebra ;
+  rdfs:label "Ginebra Importada"@es ; rdfs:label "Imported Gin"@en ; rdfs:label "Gim Importada"@pt ; rdfs:label "Gin Importé"@fr ; rdfs:label "Gin Importato"@it ;
+  ex:esImportada "true"^^xsd:boolean ;
+  ex:indicePreferencia "0.35"^^xsd:float ;
+  ex:tieneABV "42.0"^^xsd:float ;
+  ex:impactoImpuesto "35.0"^^xsd:float ;
+  ex:esPrecioPromedio "45.0"^^xsd:float ;
+  ex:seConsumeEn ex:Chuquisaca .
+
+ex:EspumanteBoliviano a ex:VinoEspumante ;
+  rdfs:label "Espumante Boliviano"@es ; rdfs:label "Bolivian Sparkling Wine"@en ; rdfs:label "Vinho Espumante Boliviano"@pt ; rdfs:label "Vin Mousseux Bolivien"@fr ; rdfs:label "Vino Spumante Boliviano"@it ;
+  ex:tieneABV "12.0"^^xsd:float ;
+  ex:esImportada "false"^^xsd:boolean ;
+  ex:seAsociaAEvento ex:Elecciones2025 .
+
+ex:PoncheNavideno a ex:BebidaAlcoholica ;
+  rdfs:label "Ponche Navideño"@es ; rdfs:label "Christmas Punch"@en ; rdfs:label "Ponche Natalino"@pt ; rdfs:label "Ponche de Noël"@fr ; rdfs:label "Punch Natalizio"@it ;
+  ex:temperaturaServicio "Caliente" ;
+  ex:tieneABV "8.5"^^xsd:float ;
+  ex:esArtesanal "true"^^xsd:boolean ;
+  ex:esMercadoFormal "true"^^xsd:boolean ;
+  ex:esPopularEn ex:EstInvierno .
+
+ex:ApiConSingani a ex:BebidaAlcoholica ;
+  rdfs:label "Api con Singani"@es ; rdfs:label "Api with Singani"@en ; rdfs:label "Api com Singani"@pt ; rdfs:label "Api avec Singani"@fr ; rdfs:label "Api con Singani"@it ;
+  ex:temperaturaServicio "Caliente" ;
+  ex:tieneABV "12.0"^^xsd:float ;
+  ex:esArtesanal "true"^^xsd:boolean ;
+  ex:esPopularEn ex:EstInvierno ;
+  ex:seConsumeEn ex:LaPaz .
+
+ex:CervezaChaco a ex:CervezaPilsen ;
+  rdfs:label "Cerveza Chaco"@es ; rdfs:label "Chaco Beer"@en ; rdfs:label "Cerveja Chaco"@pt ; rdfs:label "Bière Chaco"@fr ; rdfs:label "Birra Chaco"@it ;
+  ex:nombreMarca "Chaco Beer" ;
+  ex:tieneABV "4.5"^^xsd:float ;
+  ex:seConsumeEn ex:Chuquisaca ;
+  ex:esFavorecidaPor ex:R18_24_GenZ .
+
+ex:RonSanRoque a ex:Ron ;
+  rdfs:label "Ron San Roque"@es ; rdfs:label "San Roque Rum"@en ; rdfs:label "Rum San Roque"@pt ; rdfs:label "Rhum San Roque"@fr ; rdfs:label "Rum San Rocco"@it ;
+  ex:nombreMarca "Ron San Roque" ;
+  ex:tieneABV "38.0"^^xsd:float ;
+  ex:seConsumeEn ex:Tarija ;
+  ex:seAsociaAEvento ex:FiestaSanRoque ;
+  ex:esFavorecidaPor ex:NSE_Medio .
+
+ex:CervezaSeleccion a ex:CervezaLager ;
+  rdfs:label "Cerveza Selección"@es ; rdfs:label "Selection Beer"@en ; rdfs:label "Cerveja Seleção"@pt ; rdfs:label "Bière Sélection"@fr ; rdfs:label "Birra Selezione"@it ;
+  ex:nombreMarca "Cerveza Selección" ;
+  ex:tieneABV "5.0"^^xsd:float ;
+  ex:seAsociaAEvento ex:PartidoSeleccion ;
+  ex:seConsumeEn ex:LaPaz .
+
+ex:EspumanteBeni a ex:VinoEspumante ;
+  rdfs:label "Espumante Beni"@es ; rdfs:label "Beni Sparkling Wine"@en ; rdfs:label "Espumante Beni"@pt ; rdfs:label "Vin Mousseux Beni"@fr ; rdfs:label "Vino Spumante Beni"@it ;
+  ex:nombreMarca "Espumante Beni" ;
+  ex:tieneABV "11.0"^^xsd:float ;
+  ex:seConsumeEn ex:Beni ;
+  ex:tienePropiedad ex:DulzuraBeni .
+
+ex:CasaReal ex:seConsumeEn ex:Oruro .
+
+ex:CervezaGenZ a ex:CervezaArtesanal ;
+  rdfs:label "Cerveza GenZ"@es ; rdfs:label "GenZ Beer"@en ; rdfs:label "Cerveja GenZ"@pt ; rdfs:label "Bière GenZ"@fr ; rdfs:label "Birra GenZ"@it ;
+  ex:nombreMarca "Cerveza GenZ" ;
+  ex:tieneABV "5.2"^^xsd:float ;
+  ex:seConsumeEn ex:SantaCruz ;
+  ex:esFavorecidaPor ex:R18_24_GenZ .
+
+ex:CoctelTarija2 a ex:BebidaAlcoholica ;
+  rdfs:label "Cóctel Tarijeño 2"@es ; rdfs:label "Tarija Cocktail 2"@en ; rdfs:label "Coquetel Tarijeño 2"@pt ; rdfs:label "Cocktail Tarija 2"@fr ; rdfs:label "Cocktail Tarija 2"@it ;
+  ex:nombreProducto "Cóctel Tarijeño 2" ;
+  ex:usaIngrediente ex:CanaDeAzucar ;
+  ex:seConsumeEn ex:Tarija .
+
+ex:CervezaPremiumAndina a ex:CervezaArtesanal ;
+  rdfs:label "Cerveza Andina Premium"@es ; rdfs:label "Andean Premium Beer"@en ; rdfs:label "Cerveja Andina Premium"@pt ; rdfs:label "Bière Andine Premium"@fr ; rdfs:label "Birra Andina Premium"@it ;
+  ex:nombreMarca "Cerveza Andina Premium" ;
+  ex:tieneABV "5.3"^^xsd:float ;
+  ex:esPremium "true"^^xsd:boolean ;
+  ex:esMercadoFormal "true"^^xsd:boolean ;
+  ex:seAsociaConMusica ex:Folklore .
+
+ex:RonFormal a ex:Ron ;
+  rdfs:label "Ron Formal"@es ; rdfs:label "Formal Rum"@en ; rdfs:label "Rum Formal"@pt ; rdfs:label "Rhum Formel"@fr ; rdfs:label "Rum Formale"@it ;
+  ex:nombreMarca "Ron Formal" ;
+  ex:tieneABV "38.0"^^xsd:float ;
+  ex:esMercadoFormal "true"^^xsd:boolean ;
+  ex:esImportada "false"^^xsd:boolean ;
+  ex:seConsumeEn ex:Cochabamba .
+
+ex:VinoDiaMadre a ex:VinoRosado ;
+  rdfs:label "Vino Rosado Día de la Madre"@es ; rdfs:label "Mother's Day Rosé Wine"@en ; rdfs:label "Vinho Rosé Dia das Mães"@pt ; rdfs:label "Vin Rosé Fête des Mères"@fr ; rdfs:label "Vino Rosato Festa della Mamma"@it ;
+  ex:nombreMarca "Vino Rosado Día de la Madre" ;
+  ex:tieneABV "12.0"^^xsd:float ;
+  ex:seAsociaAEvento ex:DiaDeLaMadre ;
+  ex:seConsumeEn ex:Cochabamba .
+
+# Bebidas sin alcohol
+ex:AguaMineral a ex:BebidaSinAlcohol ;
+  rdfs:label "Agua Mineral"@es ; rdfs:label "Mineral Water"@en ; rdfs:label "Água Mineral"@pt ; rdfs:label "Eau Minérale"@fr ; rdfs:label "Acqua Minerale"@it ;
+  ex:nombreProducto "Agua Mineral" .
+
+ex:RefrescoGaseoso a ex:BebidaSinAlcohol ;
+  rdfs:label "Refresco Gaseoso"@es ; rdfs:label "Carbonated Soft Drink"@en ; rdfs:label "Refrigerante Gaseoso"@pt ; rdfs:label "Boisson Gazeuse"@fr ; rdfs:label "Bevanda Gassata"@it ;
+  ex:nombreProducto "Refresco Gaseoso" .
+
+# Restricciones legales
+ex:ProhibicionCenso a ex:RestriccionLegal ;
+  rdfs:label "Prohibición de venta en censo"@es ; rdfs:label "Sales Prohibition during Census"@en ; rdfs:label "Proibição de venda durante o censo"@pt ; rdfs:label "Interdiction de vente lors du recensement"@fr ; rdfs:label "Divieto di vendita durante il censimento"@it ;
+  ex:tieneNombre "Prohibición venta en días de censo" ;
+  ex:aplicaADepartamento ex:LaPaz, ex:Cochabamba, ex:SantaCruz, ex:Oruro, ex:Potosi, ex:Chuquisaca, ex:Tarija, ex:Beni, ex:Pando .
+
+ex:ProhibicionHorasVotacion a ex:RestriccionLegal ;
+  rdfs:label "Restricción de venta durante votación"@es ; rdfs:label "Sales Restriction during Voting Hours"@en ; rdfs:label "Restrição de venda durante horas de votação"@pt ; rdfs:label "Restriction de vente pendant les heures de vote"@fr ; rdfs:label "Restrizione di vendita durante le ore di voto"@it ;
+  ex:tieneNombre "Restricción durante horas de votación" ;
+  ex:descripcion "Prohibida la venta de alcohol 00:00–20:00 hrs en días de elecciones" ;
+  ex:aplicaAEvento ex:Elecciones2025 ;
+  ex:aplicaADepartamento ex:LaPaz, ex:Cochabamba, ex:SantaCruz, ex:Oruro, ex:Potosi, ex:Chuquisaca, ex:Tarija, ex:Beni, ex:Pando .
+
+ex:ProhibicionCenso ex:aplicaABebida ex:WhiskyImportado .
+ex:ProhibicionCenso ex:aplicaABebida ex:RonSanRoman .
+
+# Ventas
+ex:VentasCervezaCarnaval2x1 a ex:Ventas ;
+  rdfs:label "Ventas Cerveza Carnaval 2x1"@es ; rdfs:label "Beer Sales Carnival 2x1"@en ; rdfs:label "Vendas de Cerveja Carnaval 2x1"@pt ; rdfs:label "Ventes Bière Carnaval 2x1"@fr ; rdfs:label "Vendite Birra Carnevale 2x1"@it ;
+  ex:tieneVolumenVentas "200000"^^xsd:integer ;
+  ex:tipoPromocion "2x1" ;
+  ex:paraProducto ex:Paceña ;
+  ex:canalVenta ex:Fidalga ;
+  ex:periodo "Durante" ;
+  ex:asociadaAEvento ex:CarnavalOruro .
+
+ex:VentasCervezaCarnavalBase a ex:Ventas ;
+  rdfs:label "Ventas Cerveza Carnaval Base"@es ; rdfs:label "Beer Sales Carnival Base"@en ; rdfs:label "Vendas de Cerveja Carnaval Base"@pt ; rdfs:label "Ventes Bière Carnaval Base"@fr ; rdfs:label "Vendite Birra Carnevale Base"@it ;
+  ex:tieneVolumenVentas "120000"^^xsd:integer ;
+  ex:tipoPromocion "ninguna" ;
+  ex:paraProducto ex:Paceña ;
+  ex:canalVenta ex:Fidalga ;
+  ex:periodo "Durante" ;
+  ex:asociadaAEvento ex:CarnavalOruro .
+
+ex:VentasRonDiscotecaPando a ex:Ventas ;
+  rdfs:label "Ventas Ron Discoteca Pando"@es ; rdfs:label "Rum Sales Discotheque Pando"@en ; rdfs:label "Vendas de Rum Discoteca Pando"@pt ; rdfs:label "Ventes Rhum Discothèque Pando"@fr ; rdfs:label "Vendite Rum Discoteca Pando"@it ;
+  ex:tieneVolumenVentas "45000"^^xsd:integer ;
+  ex:tipoPromocion "ninguna" ;
+  ex:paraProducto ex:RonSanRoman ;
+  ex:canalVenta ex:CanalDiscoteca ;
+  ex:periodo "Durante" ;
+  ex:asociadaAEvento ex:CarnavalOruro .
+
+ex:VentasAguaPostSemanaSanta a ex:Ventas ;
+  rdfs:label "Ventas Agua Post Semana Santa"@es ; rdfs:label "Water Sales Post Holy Week"@en ; rdfs:label "Vendas de Água Pós Semana Santa"@pt ; rdfs:label "Ventes Eau Post Semaine Sainte"@fr ; rdfs:label "Vendite Acqua Post Settimana Santa"@it ;
+  ex:tieneVolumenVentas "15000"^^xsd:integer ;
+  ex:periodo "Post-Semana-Santa" ;
+  ex:paraProducto ex:AguaMineral ;
+  ex:asociadaAEvento ex:SemanaSanta ;
+  ex:canalVenta ex:Fidalga .
+
+ex:VentasRonPostSemanaSanta a ex:Ventas ;
+  rdfs:label "Ventas Ron Post Semana Santa"@es ; rdfs:label "Rum Sales Post Holy Week"@en ; rdfs:label "Vendas de Rum Pós Semana Santa"@pt ; rdfs:label "Ventes Rhum Post Semaine Sainte"@fr ; rdfs:label "Vendite Rum Post Settimana Santa"@it ;
+  ex:tieneVolumenVentas "12000"^^xsd:integer ;
+  ex:periodo "Post-Semana-Santa" ;
+  ex:paraProducto ex:RonSanRoman ;
+  ex:asociadaAEvento ex:SemanaSanta ;
+  ex:canalVenta ex:Fidalga .
+
+ex:VentasWhiskyCochabamba a ex:Ventas ;
+  rdfs:label "Ventas Whisky Cochabamba"@es ; rdfs:label "Whisky Sales Cochabamba"@en ; rdfs:label "Vendas de Uísque Cochabamba"@pt ; rdfs:label "Ventes Whisky Cochabamba"@fr ; rdfs:label "Vendite Whisky Cochabamba"@it ;
+  ex:tieneVolumenVentas "60000"^^xsd:integer ;
+  ex:paraProducto ex:WhiskyImportado ;
+  ex:periodo "Durante" ;
+  ex:asociadaAEvento ex:FiestaPatronalCochabamba ;
+  ex:canalVenta ex:Fidalga .
+
+ex:VentasEspumanteElecciones a ex:Ventas ;
+  rdfs:label "Ventas Espumante Elecciones"@es ; rdfs:label "Sparkling Wine Sales Elections"@en ; rdfs:label "Vendas de Espumante Eleições"@pt ; rdfs:label "Ventes Mousseux Élections"@fr ; rdfs:label "Vendite Spumante Elezioni"@it ;
+  ex:tieneVolumenVentas "85000"^^xsd:integer ;
+  ex:paraProducto ex:EspumanteBoliviano ;
+  ex:periodo "Durante" ;
+  ex:asociadaAEvento ex:Elecciones2025 ;
+  ex:canalVenta ex:Fidalga .
+
+ex:InventarioPandoNoviembre a ex:Ventas ;
+  rdfs:label "Inventario Pando Noviembre"@es ; rdfs:label "Pando Inventory November"@en ; rdfs:label "Inventário Pando Novembro"@pt ; rdfs:label "Inventaire Pando Novembre"@fr ; rdfs:label "Inventario Pando Novembre"@it ;
+  ex:tieneVolumenVentas "30000"^^xsd:integer ;
+  ex:paraProducto ex:RonSanRoman ;
+  ex:periodo "Noviembre" ;
+  ex:canalVenta ex:CanalDiscoteca ;
+  ex:asociadaAEvento ex:CarnavalOruro ;
+  ex:ocurreEnDepartamento ex:Pando .
+
+# Demandas
+ex:DemandaAguaAntesSS a ex:DemandaPromedio ;
+  rdfs:label "Demanda de Agua Antes Semana Santa"@es ; rdfs:label "Water Demand Before Holy Week"@en ; rdfs:label "Demanda de Água Antes Semana Santa"@pt ; rdfs:label "Demande d'Eau Avant Semaine Sainte"@fr ; rdfs:label "Domanda di Acqua Prima Settimana Santa"@it ;
+  ex:tieneDemanda "35000"^^xsd:integer ;
+  ex:periodo "Antes" ;
+  ex:paraProducto ex:AguaMineral ;
+  ex:seAsociaAEvento ex:SemanaSanta .
+
+ex:DemandaAguaDuranteSS a ex:DemandaPromedio ;
+  rdfs:label "Demanda de Agua Durante Semana Santa"@es ; rdfs:label "Water Demand During Holy Week"@en ; rdfs:label "Demanda de Água Durante Semana Santa"@pt ; rdfs:label "Demande d'Eau Pendant Semaine Sainte"@fr ; rdfs:label "Domanda di Acqua Durante Settimana Santa"@it ;
+  ex:tieneDemanda "62000"^^xsd:integer ;
+  ex:periodo "Durante" ;
+  ex:paraProducto ex:AguaMineral ;
+  ex:seAsociaAEvento ex:SemanaSanta .
+
+ex:DemandaSinganiPartido a ex:DemandaPromedio ;
+  rdfs:label "Demanda de Singani Partido de Fútbol"@es ; rdfs:label "Singani Demand Soccer Match"@en ; rdfs:label "Demanda de Singani Partida de Futebol"@pt ; rdfs:label "Demande de Singani Match de Football"@fr ; rdfs:label "Domanda di Singani Partita di Calcio"@it ;
+  ex:tieneDemanda "95000"^^xsd:integer ;
+  ex:periodo "Durante" ;
+  ex:paraProducto ex:CasaReal ;
+  ex:seAsociaAEvento ex:PartidoSeleccion .
+
+ex:DemandaPaceñaCarnavalOruro a ex:DemandaPromedio ;
+  rdfs:label "Demanda de Paceña Carnaval de Oruro"@es ; rdfs:label "Paceña Demand Carnival of Oruro"@en ; rdfs:label "Demanda de Paceña Carnaval de Oruro"@pt ; rdfs:label "Demande de Paceña Carnaval d'Oruro"@fr ; rdfs:label "Domanda di Paceña Carnevale di Oruro"@it ;
+  ex:tieneDemanda "85000"^^xsd:integer ;
+  ex:periodo "Durante" ;
+  ex:paraProducto ex:Paceña ;
+  ex:seAsociaAEvento ex:CarnavalOruro .
+
+# Campañas
+ex:CampañaSinganiPatrio a ex:CampañaPublicitaria ;
+  rdfs:label "Campaña Singani Aniversario Patrio"@es ; rdfs:label "Singani Campaign National Anniversary"@en ; rdfs:label "Campanha Singani Aniversário Pátrio"@pt ; rdfs:label "Campagne Singani Anniversaire Patriotique"@fr ; rdfs:label "Campagna Singani Anniversario Patriottico"@it ;
+  ex:promociona ex:CasaReal ;
+  ex:esPatrocinadoPor ex:ArtistaNacional1 ;
+  ex:seAsociaAAcontecimiento ex:AniversarioPatrio ;
+  ex:indiceEfectividad "0.78"^^xsd:float .
+
+ex:CampañaEspumanteElectoral a ex:CampañaPublicitaria ;
+  rdfs:label "Campaña Espumante Electoral"@es ; rdfs:label "Sparkling Wine Campaign Electoral"@en ; rdfs:label "Campanha Espumante Eleitoral"@pt ; rdfs:label "Campagne Mousseux Électorale"@fr ; rdfs:label "Campagna Spumante Elettorale"@it ;
+  ex:promociona ex:EspumanteBoliviano ;
+  ex:seAsociaAAcontecimiento ex:Elecciones2025 ;
+  ex:indiceEfectividad "0.65"^^xsd:float .
+
+ex:CampañaEspumante2025 a ex:CampañaPublicitaria ;
+  rdfs:label "Campaña Espumante 2025"@es ; rdfs:label "Sparkling Wine Campaign 2025"@en ; rdfs:label "Campanha Espumante 2025"@pt ; rdfs:label "Campagne Mousseux 2025"@fr ; rdfs:label "Campagna Spumante 2025"@it ;
+  ex:promociona ex:EspumanteBoliviano ;
+  ex:seAsociaAAcontecimiento ex:Elecciones2025 ;
+  ex:indiceEfectividad "0.72"^^xsd:float .
+
+# Estilos de música y afinidad con cervezas premium
+ex:CervezaPremiumHuari a ex:CervezaArtesanal ;
+  rdfs:label "Cerveza Huari Premium"@es ; rdfs:label "Huari Premium Beer"@en ; rdfs:label "Cerveja Huari Premium"@pt ; rdfs:label "Bière Huari Premium"@fr ; rdfs:label "Birra Huari Premium"@it ;
+  ex:tieneABV "5.5"^^xsd:float ;
+  ex:nombreMarca "Huari Premium" ;
+  ex:esPremium "true"^^xsd:boolean ;
+  ex:esMercadoFormal "true"^^xsd:boolean ;
+  ex:seAsociaConMusica ex:EDM .
+
+# Reglas de maridaje (ejemplo para Vino Tinto)
+ex:MaridajeVinoTinto a owl:Thing ;
+  rdfs:label "Maridaje Vino Tinto con Carnes Rojas"@es ; rdfs:label "Pairing Red Wine with Red Meat"@en ; rdfs:label "Harmonização Vinho Tinto com Carnes Vermelhas"@pt ; rdfs:label "Accords Vin Rouge avec Viandes Rouges"@fr ; rdfs:label "Abbinamento Vino Rosso con Carni Rosse"@it ;
+  ex:tieneNombre "Maridaje Vino Tinto con carnes rojas" .
+
+ex:VinoTintoCohina a ex:VinoTinto ;
+  rdfs:label "Vino Tinto Cohina"@es ; rdfs:label "Cohina Red Wine"@en ; rdfs:label "Vinho Tinto Cohina"@pt ; rdfs:label "Vin Rouge Cohina"@fr ; rdfs:label "Vino Rosso Cohina"@it ;
+  ex:tieneABV "13.5"^^xsd:float ;
+  ex:esPrecioPromedio "18.0"^^xsd:float ;
+  ex:nombreMarca "Cohina" ;
+  ex:compiteCon ex:CamposDeNolana .
+
+ex:CamposDeNolana a ex:VinoTinto ;
+  rdfs:label "Vino Tinto Campos de Nolana"@es ; rdfs:label "Campos de Nolana Red Wine"@en ; rdfs:label "Vinho Tinto Campos de Nolana"@pt ; rdfs:label "Vin Rouge Campos de Nolana"@fr ; rdfs:label "Vino Rosso Campos di Nolana"@it ;
+  ex:tieneABV "13.0"^^xsd:float ;
+  ex:rangoPrecioMin "10.0"^^xsd:float ;
+  ex:rangoPrecioMax "25.0"^^xsd:float ;
+  ex:nombreMarca "Campos de Nolana" .
+
+ex:MaridajeVinoTinto ex:aplicaABebida ex:VinoTintoCohina .
+ex:MaridajeVinoTinto ex:aplicaABebida ex:CamposDeNolana .
+
+# Estaciones del año y consumo de tragos calientes
+ex:EstOtono a ex:Otono ; 
+  rdfs:label "Otoño"@es ; rdfs:label "Autumn"@en ; rdfs:label "Outono"@pt ; rdfs:label "Automne"@fr ; rdfs:label "Autunno"@it ;
+  ex:tieneNombre "Otoño" .
+ex:EstPrimavera a ex:Primavera ; 
+  rdfs:label "Primavera"@es ; rdfs:label "Spring"@en ; rdfs:label "Primavera"@pt ; rdfs:label "Printemps"@fr ; rdfs:label "Primavera"@it ;
+  ex:tieneNombre "Primavera" .
+
+ex:ApiConSingani ex:esPopularEn ex:EstInvierno .
+ex:PoncheNavideno ex:esPopularEn ex:EstInvierno .
+
+# ABV promedio en mercado formal
+ex:WhiskyImportado a ex:Whisky ;
+  rdfs:label "Whisky Importado"@es ; rdfs:label "Imported Whisky"@en ; rdfs:label "Uísque Importado"@pt ; rdfs:label "Whisky Importé"@fr ; rdfs:label "Whisky Importato"@it ;
+  ex:tieneABV "43.0"^^xsd:float ;
+  ex:esImportada "true"^^xsd:boolean ;
+  ex:esMercadoFormal "true"^^xsd:boolean .
+
+# Coste de producción referencial
+ex:RonNacional a ex:Ron ;
+  rdfs:label "Ron Nacional"@es ; rdfs:label "National Rum"@en ; rdfs:label "Rum Nacional"@pt ; rdfs:label "Rhum National"@fr ; rdfs:label "Rum Nazionale"@it ;
+  ex:tieneABV "38.0"^^xsd:float ;
+  ex:costeProduccion "12.5"^^xsd:float ;
+  ex:nombreMarca "Ron Nacional" ;
+  ex:esImportada "false"^^xsd:boolean .
+
+# Densidad de puntos de venta para artesanales
+ex:Potosi ex:densidadPuntosVenta "20.0"^^xsd:float .
+ex:Cochabamba ex:densidadPuntosVenta "15.0"^^xsd:float .
+
+# Promociones 2x1
+ex:VentasCervezaHuariPromo a ex:Ventas ;
+  rdfs:label "Ventas Cerveza Huari Promoción"@es ; rdfs:label "Huari Beer Sales Promotion"@en ; rdfs:label "Vendas de Cerveja Huari Promoção"@pt ; rdfs:label "Ventes Bière Huari Promotion"@fr ; rdfs:label "Vendite Birra Huari Promozione"@it ;
+  ex:tieneVolumenVentas "50000"^^xsd:integer ;
+  ex:tipoPromocion "2x1" ;
+  ex:paraProducto ex:CervezaPremiumHuari ;
+  ex:canalVenta ex:Fidalga ;
+  ex:periodo "Durante" ;
+  ex:asociadaAEvento ex:CarnavalOruro .
+
+# Celebridad con afinidad a Singani
+ex:ArtistaNacional2 a ex:CelebridadLocal ;
+  rdfs:label "Artista Nacional 2"@es ; rdfs:label "National Artist 2"@en ; rdfs:label "Artista Nacional 2"@pt ; rdfs:label "Artiste National 2"@fr ; rdfs:label "Artista Nazionale 2"@it ;
+  ex:tieneNombre "Artista Nacional 2" .
+ex:CasaReal ex:esFavorecidaPor ex:ArtistaNacional2 .
+
+# Tipo de vaso recomendado para Singani Casa Real
+ex:VasoTulipan a ex:TipoDeVaso ;
+  rdfs:label "Vaso Tulipán"@es ; rdfs:label "Tulip Glass"@en ; rdfs:label "Copo Tulipa"@pt ; rdfs:label "Verre Tulipe"@fr ; rdfs:label "Bicchiere Tulipano"@it ;
+  ex:tieneNombre "Vaso Tulipán" ;
+  ex:esRecomendadoPara ex:CasaReal .
+
+# Índice de preferencia comparativo Vodka vs Ginebra en Chuquisaca
+ex:VodkaBoliviano ex:indicePreferencia "0.65"^^xsd:float ; ex:seConsumeEn ex:Chuquisaca .
+ex:GinebraImportada ex:indicePreferencia "0.35"^^xsd:float ; ex:seConsumeEn ex:Chuquisaca .
+
+# Ingredientes en cócteles populares de Tarija
+ex:CoctelTarija1 a ex:BebidaAlcoholica ;
+  rdfs:label "Cóctel Tarijeño 1"@es ; rdfs:label "Tarija Cocktail 1"@en ; rdfs:label "Cóquel Tarijeño 1"@pt ; rdfs:label "Cóc Tarija 1"@fr ; rdfs:label "Cocktail Tarija 1"@it ;
+  ex:nombreProducto "Cóctel Tarijeño 1" ;
+  ex:usaIngrediente ex:CanaDeAzucar, ex:Agua ;
+  ex:seConsumeEn ex:Tarija .
+
+# Estilo de música asociado a cervezas premium
+ex:CervezaPremiumHuari ex:seAsociaConMusica ex:EDM .
+
+# Restricciones legales en días de censo
+ex:ProhibicionCenso ex:aplicaADepartamento ex:LaPaz, ex:Cochabamba, ex:SantaCruz, ex:Oruro, ex:Potosi, ex:Chuquisaca, ex:Tarija, ex:Beni, ex:Pando .
+
+# Presupuesto promedio de marketing por festividad departamental
+ex:CarnavalOruro ex:presupuestoMarketing "50000.0"^^xsd:float .
+ex:FiestaSanRoque ex:presupuestoMarketing "30000.0"^^xsd:float .
+
+# Propiedad organoléptica popular en Potosí durante invierno
+ex:AmargorPotosi a ex:PropiedadOrganoleptica ; 
+  rdfs:label "Amargor de Potosí"@es ; rdfs:label "Potosi Bitterness"@en ; rdfs:label "Amargor de Potosí"@pt ; rdfs:label "Amertume de Potosí"@fr ; rdfs:label "Amarezza di Potosí"@it ;
+  ex:valorAmargor "Alto" .
+ex:Paceña ex:tienePropiedad ex:AmargorPotosi ; ex:esPopularEn ex:EstInvierno ; ex:seConsumeEn ex:Potosi .
+
+# Impacto de impuesto en Ginebra Importada
+ex:GinebraImportada ex:impactoImpuesto "35.0"^^xsd:float .
+
+# Inventario recomendado en Pando en noviembre
+ex:Pando ex:mesRecomendado "Noviembre" .
+ex:RonSanRoman ex:seConsumeEn ex:Pando .
