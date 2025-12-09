@@ -1,13 +1,9 @@
 FROM stain/jena-fuseki
 
-# Copia tu configuración personalizada
-COPY fuseki-base/ /fuseki
+# Copia configuración y ontología
+COPY fuseki-base/configuration/config.ttl /fuseki/configuration/config.ttl
+COPY fuseki-base/shiro.ini /fuseki/shiro.ini
+COPY fuseki-base/databases/bebidas/bebidasbolivia.ttl /fuseki/databases/bebidas/bebidasbolivia.ttl
 
-# 🔧 Da permisos de escritura a Fuseki
-RUN chmod -R 777 /fuseki
-
-# Expón el puerto Fuseki por defecto
 EXPOSE 3030
-
-# Comando de arranque
-CMD ["/jena-fuseki/fuseki-server"]
+CMD ["/jena-fuseki/fuseki-server", "--config", "/fuseki/configuration/config.ttl"]
