@@ -49,25 +49,6 @@ app.post("/consultar", async (req, res) => {
   }
 });
 
-// app.post("/consultar", async (req, res) => {
-//   const { query, lang } = req.body;
-//   const queryConIdioma = filtrarPorIdioma(query, lang);
-
-//   try {
-//     const response = await axios.post(FUSEKI_ENDPOINT, queryConIdioma, {
-//       headers: {
-//         "Content-Type": "application/sparql-query",
-//         Accept: "application/sparql-results+json",
-//       },
-//     });
-
-//     res.json(response.data);
-//   } catch (error) {
-//     console.error("Error consultando Fuseki:", error.message);
-//     res.status(500).json({ error: "Error al ejecutar la consulta SPARQL" });
-//   }
-// });
-
 // Nuevo endpoint: devolver todas las preguntas
 app.get("/api/preguntas", (req, res) => {
   res.json(preguntas);

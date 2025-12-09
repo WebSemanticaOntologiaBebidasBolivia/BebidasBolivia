@@ -28,37 +28,13 @@ export default function ConsultaPanel({
   const API_URL = import.meta.env.VITE_API_URL;
   const API_CONSULTAR = import.meta.env.VITE_API_CONSULTAR;
 
-  // const ejecutarConsulta = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const response = await axios.post(`${API_URL}${API_CONSULTAR}`, {
-  //       query: consulta,
-  //     });
-  //     setResultado(response.data.results.bindings);
-  //   } catch (error) {
-  //     console.error("Error al consultar:", error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const ejecutarConsulta = async () => {
     setLoading(true);
     try {
       const response = await axios.post(`${API_URL}${API_CONSULTAR}`, {
         query: consulta,
       });
-
-      console.log("Respuesta cruda del backend:", response.data);
-
-      const bindings = response.data?.results?.bindings;
-      if (!bindings) {
-        console.warn("Respuesta inesperada:", response.data);
-        setResultado([]);
-        return;
-      }
-
-      setResultado(bindings);
+      setResultado(response.data.results.bindings);
     } catch (error) {
       console.error("Error al consultar:", error);
     } finally {
