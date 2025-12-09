@@ -96,6 +96,7 @@ Debes tener [Docker](https://docs.docker.com/get-docker/) instalado.
 Desde la carpeta `fuseki`:
 
 ```bash
+cd fuseki
 docker build -t fuseki-bebidas .
 ```
 
