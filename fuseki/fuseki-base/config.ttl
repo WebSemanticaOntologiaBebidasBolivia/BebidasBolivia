@@ -1,6 +1,7 @@
 @prefix :        <#> .
 @prefix fuseki:  <http://jena.apache.org/fuseki#> .
 @prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 [] rdf:type fuseki:Server ;
    fuseki:services (
