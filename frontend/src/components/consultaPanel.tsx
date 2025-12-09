@@ -1,13 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
+} from "@heroui/table";
 import { Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
 
-interface ConsultaPanelProps { consulta: string; setConsulta: (q: string) => void; }
+interface ConsultaPanelProps {
+  consulta: string;
+  setConsulta: (q: string) => void;
+}
 
-export default function ConsultaPanel({ consulta, setConsulta }: ConsultaPanelProps) {
+export default function ConsultaPanel({
+  consulta,
+  setConsulta,
+}: ConsultaPanelProps) {
   const { t } = useTranslation();
   const [resultado, setResultado] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -15,13 +28,35 @@ export default function ConsultaPanel({ consulta, setConsulta }: ConsultaPanelPr
   const API_URL = import.meta.env.VITE_API_URL;
   const API_CONSULTAR = import.meta.env.VITE_API_CONSULTAR;
 
+  // const ejecutarConsulta = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.post(`${API_URL}${API_CONSULTAR}`, {
+  //       query: consulta,
+  //     });
+  //     setResultado(response.data.results.bindings);
+  //   } catch (error) {
+  //     console.error("Error al consultar:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const ejecutarConsulta = async () => {
     setLoading(true);
     try {
       const response = await axios.post(`${API_URL}${API_CONSULTAR}`, {
         query: consulta,
       });
-      setResultado(response.data.results.bindings);
+
+      const bindings = response.data?.results?.bindings;
+      if (!bindings) {
+        console.warn("Respuesta inesperada:", response.data);
+        setResultado([]);
+        return;
+      }
+
+      setResultado(bindings);
     } catch (error) {
       console.error("Error al consultar:", error);
     } finally {

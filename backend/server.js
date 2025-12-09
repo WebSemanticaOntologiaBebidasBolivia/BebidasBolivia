@@ -32,16 +32,35 @@ app.get("/", (req, res) => {
 });
 
 // Ruta genérica para enviar consultas SPARQL (útil para pruebas rápidas)
+// app.post("/consultar", async (req, res) => {
+//   const { query, lang } = req.body;
+
+//   const queryConIdioma = filtrarPorIdioma(query, lang);
+
+//   try {
+//     const response = await axios.get(FUSEKI_ENDPOINT, {
+//       params: { query: queryConIdioma },
+//       headers: { Accept: "application/sparql-results+json" },
+//     });
+//     res.json(response.data);
+//   } catch (error) {
+//     console.error("Error consultando Fuseki:", error.message);
+//     res.status(500).json({ error: "Error al ejecutar la consulta SPARQL" });
+//   }
+// });
+
 app.post("/consultar", async (req, res) => {
   const { query, lang } = req.body;
-
   const queryConIdioma = filtrarPorIdioma(query, lang);
 
   try {
-    const response = await axios.get(FUSEKI_ENDPOINT, {
-      params: { query: queryConIdioma },
-      headers: { Accept: "application/sparql-results+json" },
+    const response = await axios.post(FUSEKI_ENDPOINT, queryConIdioma, {
+      headers: {
+        "Content-Type": "application/sparql-query",
+        Accept: "application/sparql-results+json",
+      },
     });
+
     res.json(response.data);
   } catch (error) {
     console.error("Error consultando Fuseki:", error.message);
