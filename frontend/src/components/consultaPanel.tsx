@@ -49,6 +49,8 @@ export default function ConsultaPanel({
         query: consulta,
       });
 
+      console.log("Respuesta cruda del backend:", response.data);
+
       const bindings = response.data?.results?.bindings;
       if (!bindings) {
         console.warn("Respuesta inesperada:", response.data);
