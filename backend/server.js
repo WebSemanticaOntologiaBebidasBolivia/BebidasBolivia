@@ -20,7 +20,7 @@ function filtrarPorIdioma(query, lang) {
   if (query.includes("rdfs:label ?label")) {
     return query.replace(
       /rdfs:label\s+\?label\s*\./,
-      `rdfs:label ?label . FILTER(lang(?label) = "${lang}")`
+      `rdfs:label ?label . FILTER(lang(?label) = "${lang}")`,
     );
   }
   return query;
