@@ -3,6 +3,9 @@ fuseki-base/backups/
 fuseki-base/logs/
 fuseki-base/system/
 fuseki-base/system_files/
+fuseki-base/templates/
+fuseki-base/databases/
+
 
 # Ignorar archivos temporales o locales
 *.log
