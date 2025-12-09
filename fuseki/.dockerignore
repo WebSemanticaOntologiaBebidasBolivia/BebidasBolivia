@@ -1,0 +1,13 @@
+# Ignorar archivos que Fuseki genera en tiempo de ejecución
+fuseki-base/backups/
+fuseki-base/logs/
+fuseki-base/system/
+fuseki-base/system_files/
+
+# Ignorar archivos temporales o locales
+*.log
+*.tmp
+*.bak
+
+# Ignorar archivos de configuración que no quieras sobreescribir
+fuseki-base/templates/
