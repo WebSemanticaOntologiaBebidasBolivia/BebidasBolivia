@@ -16,12 +16,16 @@ i18n.use(initReactI18next).init({
         tableLabel: "Resultados de consulta SPARQL",
         footer: {
           repo: "Repositorio",
-          rights: "Todos los derechos reservados."
+          rights: "Todos los derechos reservados.",
         },
-        panelHint: "Al seleccionar esta pregunta, se cargará la consulta SPARQL en el panel izquierdo.",
+        panelHint:
+          "Al seleccionar esta pregunta, se cargará la consulta SPARQL en el panel izquierdo.",
         verPreguntas: "Ver preguntas",
-        cerrar: "Cerrar"
-      }
+        cerrar: "Cerrar",
+        ontologiasTitle: "Ontologías elegibles",
+        mostrarEditor: "Mostrar editor",
+        ocultarEditor: "Ocultar editor",
+      },
     },
     en: {
       translation: {
@@ -35,12 +39,16 @@ i18n.use(initReactI18next).init({
         tableLabel: "SPARQL query results",
         footer: {
           repo: "Repository",
-          rights: "All rights reserved."
+          rights: "All rights reserved.",
         },
-        panelHint: "By selecting this question, the SPARQL query will be loaded in the left panel.",
+        panelHint:
+          "By selecting this question, the SPARQL query will be loaded in the left panel.",
         verPreguntas: "View questions",
-        cerrar: "Close"
-      }
+        cerrar: "Close",
+        ontologiasTitle: "Selectable Ontologies",
+        mostrarEditor: "Show editor",
+        ocultarEditor: "Hide editor",
+      },
     },
     fr: {
       translation: {
@@ -54,12 +62,16 @@ i18n.use(initReactI18next).init({
         tableLabel: "Résultats de la requête SPARQL",
         footer: {
           repo: "Répertoire",
-          rights: "Tous droits réservés."
+          rights: "Tous droits réservés.",
         },
-        panelHint: "En sélectionnant cette question, la requête SPARQL sera chargée dans le panneau de gauche.",
+        panelHint:
+          "En sélectionnant cette question, la requête SPARQL sera chargée dans le panneau de gauche.",
         verPreguntas: "Voir les questions",
-        cerrar: "Fermer"
-      }
+        cerrar: "Fermer",
+        ontologiasTitle: "Ontologies sélectionnables",
+        mostrarEditor: "Afficher l'éditeur",
+        ocultarEditor: "Masquer l'éditeur",
+      },
     },
     pt: {
       translation: {
@@ -73,12 +85,16 @@ i18n.use(initReactI18next).init({
         tableLabel: "Resultados da consulta SPARQL",
         footer: {
           repo: "Repositório",
-          rights: "Todos os direitos reservados."
+          rights: "Todos os direitos reservados.",
         },
-        panelHint: "Ao selecionar esta pergunta, a consulta SPARQL será carregada no painel à esquerda.",
+        panelHint:
+          "Ao selecionar esta pergunta, a consulta SPARQL será carregada no painel à esquerda.",
         verPreguntas: "Ver perguntas",
-        cerrar: "Fechar"
-      }
+        cerrar: "Fechar",
+        ontologiasTitle: "Ontologias selecionáveis",
+        mostrarEditor: "Mostrar editor",
+        ocultarEditor: "Ocultar editor",
+      },
     },
     it: {
       translation: {
@@ -92,17 +108,21 @@ i18n.use(initReactI18next).init({
         tableLabel: "Risultati della query SPARQL",
         footer: {
           repo: "Repository",
-          rights: "Tutti i diritti riservati."
+          rights: "Tutti i diritti riservati.",
         },
-        panelHint: "Selezionando questa domanda, la query SPARQL verrà caricata nel pannello a sinistra.",
+        panelHint:
+          "Selezionando questa domanda, la query SPARQL verrà caricata nel pannello a sinistra.",
         verPreguntas: "Vedi le domande",
-        cerrar: "Chiudi"
-      }
-    }
+        cerrar: "Chiudi",
+        ontologiasTitle: "Ontologie selezionabili",
+        mostrarEditor: "Mostra editor",
+        ocultarEditor: "Nascondi editor",
+      },
+    },
   },
   lng: import.meta.env.VITE_DEFAULT_LANG || "es",
   fallbackLng: "es",
-  interpolation: { escapeValue: false }
+  interpolation: { escapeValue: false },
 });
 
 export default i18n;

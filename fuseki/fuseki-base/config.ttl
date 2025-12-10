@@ -1,13 +1,16 @@
 @prefix :        <#> .
 @prefix fuseki:  <http://jena.apache.org/fuseki#> .
 @prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 [] rdf:type fuseki:Server ;
    fuseki:services (
      :service-bebidas
+     :service-wine
+     :service-beer
    ) .
 
+# Servicio para bebidas
 :service-bebidas a fuseki:Service ;
   fuseki:name "bebidas" ;
   fuseki:serviceQuery "sparql" ;
@@ -22,5 +25,41 @@
     ja:content [
       a ja:TextFile ;
       ja:externalContent "/fuseki/bebidasbolivia.ttl"
+    ]
+  ] .
+
+# Servicio para wine
+:service-wine a fuseki:Service ;
+  fuseki:name "wine" ;
+  fuseki:serviceQuery "sparql" ;
+  fuseki:serviceUpdate "update" ;
+  fuseki:serviceUpload "upload" ;
+  fuseki:serviceReadWriteGraphStore "data" ;
+  fuseki:dataset :dataset-wine .
+
+:dataset-wine a ja:MemoryDataset ;
+  ja:defaultGraph [
+    a ja:Graph ;
+    ja:content [
+      a ja:TextFile ;
+      ja:externalContent "/fuseki/wine.rdf"
+    ]
+  ] .
+
+# Servicio para beer
+:service-beer a fuseki:Service ;
+  fuseki:name "beer" ;
+  fuseki:serviceQuery "sparql" ;
+  fuseki:serviceUpdate "update" ;
+  fuseki:serviceUpload "upload" ;
+  fuseki:serviceReadWriteGraphStore "data" ;
+  fuseki:dataset :dataset-beer .
+
+:dataset-beer a ja:MemoryDataset ;
+  ja:defaultGraph [
+    a ja:Graph ;
+    ja:content [
+      a ja:TextFile ;
+      ja:externalContent "/fuseki/beer.owl"
     ]
   ] .

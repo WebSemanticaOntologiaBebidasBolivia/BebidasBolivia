@@ -1,25 +1,24 @@
 import ConsultaPanel from "@/components/consultaPanel";
 import IdiomaSelector from "@/components/idiomaSelector";
 import PreguntasPanel from "@/components/preguntasPanel";
+import DatasetSelector from "@/components/datasetSelector";
 import { ThemeSwitch } from "@/components/theme-switch";
 import DefaultLayout from "@/layouts/default";
-import { Button } from "@heroui/button";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerHeader,
-} from "@heroui/drawer";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function IndexPage() {
   const [consulta, setConsulta] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [showEditor, setShowEditor] = useState(false);
+  const [dataset, setDataset] = useState("bebidas");
   const { t } = useTranslation();
 
-  const onOpen = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
+  const ontologias = [
+    { code: "bebidas", label: "Bebidas Bolivia" },
+    { code: "wine", label: "Wine Ontology" },
+    { code: "beer", label: "Beer Ontology" },
+    { code: "dbpedia", label: "DBpedia" },
+  ];
 
   return (
     <DefaultLayout>
@@ -36,37 +35,29 @@ export default function IndexPage() {
 
           <div className="flex justify-center md:justify-start gap-4">
             <IdiomaSelector />
-            <Button onPress={onOpen} color="primary">
-              {t("verPreguntas")}
-            </Button>
           </div>
         </div>
 
+        {/* Selector de dataset */}
+        <div className="w-full max-w-6xl mt-6">
+          <DatasetSelector
+            datasets={ontologias}
+            onSelect={setDataset}
+            initialDataset="bebidas"
+          />
+        </div>
+
+        {/* Paneles que dependen del dataset */}
         <div className="w-full max-w-6xl mt-8">
-          <ConsultaPanel consulta={consulta} setConsulta={setConsulta} />
+          <PreguntasPanel dataset={dataset} setConsulta={setConsulta} />
+          <ConsultaPanel
+            consulta={consulta}
+            setConsulta={setConsulta}
+            showEditor={showEditor}
+            dataset={dataset}
+          />
         </div>
       </section>
-
-      {/* Drawer para Preguntas */}
-      <Drawer isOpen={isOpen} onOpenChange={setIsOpen} placement="right" hideCloseButton>
-        <DrawerContent>
-          {() => (
-            <>
-              <DrawerHeader className="flex items-center justify-between">
-                <span className="text-xl font-semibold">
-                  {t("verPreguntas")}
-                </span>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  ✕ {t("cerrar")}
-                </Button>
-              </DrawerHeader>
-              <DrawerBody>
-                <PreguntasPanel setConsulta={setConsulta} />
-              </DrawerBody>
-            </>
-          )}
-        </DrawerContent>
-      </Drawer>
     </DefaultLayout>
   );
 }

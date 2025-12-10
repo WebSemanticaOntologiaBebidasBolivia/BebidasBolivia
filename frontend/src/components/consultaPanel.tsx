@@ -15,15 +15,20 @@ import { Button } from "@heroui/button";
 interface ConsultaPanelProps {
   consulta: string;
   setConsulta: (q: string) => void;
+  dataset: string; // 👈 nuevo prop
+  showEditor?: boolean; // opcional, si quieres controlarlo desde IndexPage
 }
 
 export default function ConsultaPanel({
   consulta,
   setConsulta,
+  dataset,
+  showEditor = false,
 }: ConsultaPanelProps) {
   const { t } = useTranslation();
   const [resultado, setResultado] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [editorVisible, setEditorVisible] = useState(showEditor);
 
   const API_URL = import.meta.env.VITE_API_URL;
   const API_CONSULTAR = import.meta.env.VITE_API_CONSULTAR;
@@ -33,6 +38,7 @@ export default function ConsultaPanel({
     try {
       const response = await axios.post(`${API_URL}${API_CONSULTAR}`, {
         query: consulta,
+        dataset, // 👈 usa el dataset recibido
       });
       setResultado(response.data.results.bindings);
     } catch (error) {
@@ -60,7 +66,20 @@ export default function ConsultaPanel({
           {resultado.map((fila, idx) => (
             <TableRow key={idx}>
               {columnas.map((col) => (
-                <TableCell key={col}>{fila[col]?.value || ""}</TableCell>
+                <TableCell key={col}>
+                  {fila[col]?.value?.startsWith("http") ? (
+                    <a
+                      href={fila[col].value}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      {fila[col].value}
+                    </a>
+                  ) : (
+                    fila[col]?.value || ""
+                  )}
+                </TableCell>
               ))}
             </TableRow>
           ))}
@@ -71,12 +90,23 @@ export default function ConsultaPanel({
 
   return (
     <div className="flex flex-col gap-4">
-      <Textarea
-        value={consulta}
-        onChange={(e) => setConsulta(e.target.value)}
-        placeholder={t("inputPlaceholder")}
-        minRows={10}
-      />
+      {/* Botón para mostrar/ocultar editor */}
+      <Button
+        onPress={() => setEditorVisible(!editorVisible)}
+        color={editorVisible ? "danger" : "secondary"}
+      >
+        {editorVisible ? t("ocultarEditor") : t("mostrarEditor")}
+      </Button>
+
+      {editorVisible && (
+        <Textarea
+          value={consulta}
+          onChange={(e) => setConsulta(e.target.value)}
+          placeholder={t("inputPlaceholder")}
+          minRows={10}
+        />
+      )}
+
       <Button
         onClick={ejecutarConsulta}
         color="primary"
@@ -85,6 +115,7 @@ export default function ConsultaPanel({
       >
         {t("executeButton")}
       </Button>
+
       <div className="overflow-auto max-h-96">{renderTabla()}</div>
     </div>
   );
