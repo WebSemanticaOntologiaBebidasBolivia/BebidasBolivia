@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function IndexPage() {
   const [consulta, setConsulta] = useState("");
-  const [showEditor, setShowEditor] = useState(false);
+  const [showEditor] = useState(false);
   const [dataset, setDataset] = useState("bebidas");
   const { t } = useTranslation();
 
